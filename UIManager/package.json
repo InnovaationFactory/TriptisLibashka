@@ -1,0 +1,7 @@
+{
+  "name": "triptis-libashka",
+  "dependencies": {
+    "angular": "^1.5.3",
+    "express": "^4.13.4"
+  }
+}
