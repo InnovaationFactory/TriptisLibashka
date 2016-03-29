@@ -1,7 +1,22 @@
 {
-  "name": "triptis-libashka",
+  "name": "triptislibashka",
+  "private": true,
+  "version": "0.0.4",
+  "description": "A desire to dress",
+  "licenses": [],
   "dependencies": {
-    "angular": "^1.5.3",
+    "angular": "^1.4.9",
+    "angular-animate": "^1.4.9",
+    "angular-aria": "^1.4.9",
+    "angular-material": "^1.0.0",
     "express": "^4.13.4"
-  }
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.4.9",
+    "karma": "^0.13.19",
+    "karma-chrome-launcher": "^0.2.2",
+    "karma-jasmine": "^0.3.6",
+    "live-server": "^0.9.1"
+  },
+  "scripts": {}
 }

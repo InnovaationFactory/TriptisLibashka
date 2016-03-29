@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Tripti's Libashka</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'>
+    <link rel="stylesheet" href="angular-material/angular-material.css" />
+    <link rel="stylesheet" href="assets/css/app.css" />
+    <style type="text/css">
+        [ng\:cloak],
+        [ng-cloak],
+        [data-ng-cloak],
+        [x-ng-cloak],
+        .ng-cloak,
+        .x-ng-cloak {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body ng-app="starterApp" layout="row" ng-controller="UserController as ul" ng-cloak>
+
+    <md-sidenav class="site-sidenav md-sidenav-left md-whiteframe-z2" md-component-id="left" ng-click="ul.toggleList()" aria-label="Show User List" md-is-locked-open="false">
+        <md-toolbar class="md-whiteframe-z1">
+            <h3>Menu</h3>
+        </md-toolbar>
+        <md-list>
+            <md-list-item ng-repeat="it in ul.users">
+                <md-button ng-click="ul.selectUser(it)" ng-class="{'selected' : it === ul.selected }">
+                    <img class="avatar" src="{{it.avatar}}" alt="{{it.name}}" /> {{it.name}}
+                </md-button>
+            </md-list-item>
+        </md-list>
+    </md-sidenav>
+
+    <div flex layout="column" tabIndex="-1" role="main" class="md-whiteframe-z2">
+        <md-content flex id="content" class="tl-banner">
+            <md-button id="main" class="menu" ng-click="ul.toggleList()" aria-label="Show User List">
+                <md-icon md-svg-icon="menu"></md-icon>
+            </md-button>
+            <div class="circle-icon-div">
+                <div class="bounce circle-icons icon-1" ng-click="ul.makeContact(ul.selected)"></div>
+                <div class="bounce even circle-icons icon-2"></div>
+                <div class="bounce odd circle-icons icon-3"></div>
+            </div>
+            <div class="vertical-flip" ng-include="ul.selected.content"></div>
+        </md-content>
+    </div>
+
+    <script src="angular/angular.js"></script>
+    <script src="angular-animate/angular-animate.js"></script>
+    <script src="angular-aria/angular-aria.js"></script>
+    <script type="text/javascript" src=" angular-material/angular-material.js"></script>
+    <script src="./src/users/Users.js"></script>
+    <script src="./src/users/UserController.js"></script>
+    <script src="./src/users/UserService.js"></script>
+
+    <script type="text/javascript">
+        angular
+            .module('starterApp', ['ngMaterial', 'users'])
+            .config(function ($mdThemingProvider, $mdIconProvider) {
+
+                $mdIconProvider
+                    .icon("menu", "./assets/svg/menu.svg", 24)
+                    .icon("share", "./assets/svg/share.svg", 24)
+                    .icon("google_plus", "./assets/svg/google_plus.svg", 512)
+                    .icon("hangouts", "./assets/svg/hangouts.svg", 512)
+                    .icon("twitter", "./assets/svg/twitter.svg", 512)
+                    .icon("call", "./assets/svg/call.svg", 16)
+                    .icon("mail", "./assets/svg/e-mail.svg", 16)
+
+                $mdThemingProvider.theme('default')
+                    .primaryPalette('indigo')
+                    .accentPalette('red');
+            });
+    </script>
+</body>
+
+</html>
