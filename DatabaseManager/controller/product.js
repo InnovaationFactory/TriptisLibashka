@@ -1,17 +1,18 @@
 (function (user) {
-    var data = require('../data');
+    var data = require('../data'),
+        tableName = 'product';
 
-    user.getUserDetails = function (req, res) {
+    user.getProductDetails = function (req, res) {
         var request = {};
-        request.table = 'user';
+        request.table = tableName;
         request.query = {
             IsActive: true
         };
-        var username = req.params.username;
-        if (username) {
+        var productId = req.params.productId;
+        if (productId) {
             request.query = {
                 $and: [{
-                    UserName: username
+                    "_id": productId
                     }, {
                     IsActive: true
                     }]
@@ -28,14 +29,14 @@
                 result.isError = true;
                 result.error = err;
                 result.data = null;
-                res.json(result);
-                return;
+                return res.json(result);
+
             }
         });
     };
-    user.addUser = function (req, res) {
+    user.addProduct = function (req, res) {
         var request = {
-            table: 'user',
+            table: tableName,
             model: req.body
         };
 
@@ -50,7 +51,7 @@
                 result.error = err;
                 result.data = null;
             }
-            res.json(result);
+            return res.json(result);
         });
     };
 
