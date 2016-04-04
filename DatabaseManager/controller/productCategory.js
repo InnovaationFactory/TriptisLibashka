@@ -1,6 +1,6 @@
-(function (product) {
+(function (productCategory) {
     var data = require('../data'),
-        tableName = 'product';
+        tableName = 'productCategory';
 
     var updateTable = function (request, res) {
         data.update(request, function (err, response) {
@@ -21,17 +21,17 @@
         });
     }
 
-    product.getProductDetails = function (req, res) {
+    productCategory.getProductCategoryDetails = function (req, res) {
         var request = {};
         request.table = tableName;
         request.query = {
             IsActive: true
         };
-        var productId = req.params.productId;
-        if (productId) {
+        var productCategoryId = req.params.productCategoryId;
+        if (productCategoryId) {
             request.query = {
                 $and: [{
-                    "_id": productId
+                    "_id": productCategoryId
                     }, {
                     IsActive: true
                     }]
@@ -55,7 +55,7 @@
             res.json(result);
         });
     };
-    product.addProducts = function (req, res) {
+    productCategory.addProductCategory = function (req, res) {
         var request = {
             table: tableName,
             model: req.body
@@ -75,25 +75,23 @@
             return res.json(result);
         });
     };
-    product.deleteProducts = function (req, res) {
+    productCategory.deleteProductCategory = function (req, res) {
         var request = {};
         request.table = tableName;
         request.model = {
             IsActive: false
         };
-        var productId = req.params.productId;
         request.query = {
-            "_id": productId
+            "_id": req.params.productCategoryId
         };
-
         updateTable(request, res);
     };
-    product.updateProducts = function (req, res) {
+    productCategory.updateProductCategory = function (req, res) {
         var request = {
             table: tableName,
             model: req.body,
             query: {
-                "_id": req.params.productId
+                "_id": req.params.productCategoryId
             }
         };
         updateTable(request, res);
