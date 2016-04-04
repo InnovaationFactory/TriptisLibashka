@@ -6,9 +6,9 @@ module.exports = {
         'port': '27017',
         'database': 'TriptisDataStore',
         'auto_reconnect': 'true',
-        'conn_timeout': 10000,
-        'username': 'triptisdbuser',
-        'password': 'Tr!9tisDBu$3r'
+        'conn_timeout': 10000
+            //'username': 'triptisdbuser',
+            //'password': 'Tr!9tisDBu$3r'
     },
     'dataLimit': 100
 }

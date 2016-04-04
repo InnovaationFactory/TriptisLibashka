@@ -10,7 +10,8 @@
              required: true
          },
          Category: {
-             type: String,
+             type: schema.Types.ObjectId,
+             ref: 'ProductCategoryModel',
              required: true
          },
          ImageUrl: {
