@@ -2,7 +2,7 @@
     controller.init = function (app) {
 
         var config = app.get('config'),
-            router = app.get(config.router.name),
+            router = app.get(config.routes.route.name),
             product = require('./product'),
             productCategory = require('./productCategory');
 

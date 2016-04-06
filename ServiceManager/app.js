@@ -12,7 +12,7 @@ var app = module.exports = express(),
 
 app.set('config', config);
 app.set('requestifier', requestifier);
-app.set(config.routes.route.name, portalRouter);
+app.set(config.routes.route.name, router);
 
 app.use(bodyparser.urlencoded({
     extended: false

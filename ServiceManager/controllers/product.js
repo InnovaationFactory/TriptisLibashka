@@ -1,14 +1,14 @@
 (function (product) {
     var requestifier = require('../helpers/requestifier'),
         cipher = require('../helpers/cipher'),
-        config = require('./configuration'),
+        config = require('../configuration'),
         stringFormatter = require('../helpers/stringFormatter');
 
     var updateTable = function (request, res) {}
 
     product.getProductDetails = function (req, res) {
         var requestifyObj = {
-            'url': config.DBManager.getUrl('getProductDetails', req.params.productId),
+            'url': config.DBManager.getUrls('getProductDetails', req.params.productId),
         };
         requestifier.get(requestifyObj, function (err, productResponse) {
             res.json(err || productResponse);

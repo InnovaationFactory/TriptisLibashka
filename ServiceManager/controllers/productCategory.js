@@ -1,7 +1,4 @@
 (function (productCategory) {
-    var data = require('../data'),
-        tableName = 'productCategory';
-
     var updateTable = function (request, res) {
 
     }
