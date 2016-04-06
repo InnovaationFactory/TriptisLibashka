@@ -1,16 +1,8 @@
-'use strict';
-module.exports = {
-    'port': process.env.SERVICEMANAGERPORT || '50000',
-    'routes': {
-        route: {
-            'path': '/api',
-            'name': 'router'
-        }
-    },
-    DBManager: {
+var GLOBALCONFIG = {
+    ServiceManager: {
         protocol: "http://",
         host: "127.0.0.1",
-        port: ":1338",
+        port: ":50000",
         urls: {
             getProductDetails: '/api/products',
             getProductCategories: '/api/productCategories'
@@ -19,4 +11,4 @@ module.exports = {
             return this.protocol + this.host + this.port + this.urls[key] + (id ? "/" + id : '');
         }
     }
-};
+}

@@ -12,7 +12,7 @@
          ParentCategory: {
              type: schema.Types.ObjectId,
              ref: 'ProductCategoryModel',
-             required: true
+             required: false
          },
          IsActive: {
              type: Boolean,

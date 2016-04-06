@@ -22,6 +22,8 @@
     }
 
     productCategory.getProductCategoryDetails = function (req, res) {
+        debugger;
+
         var request = {};
         request.table = tableName;
         request.query = {
@@ -56,6 +58,8 @@
         });
     };
     productCategory.addProductCategory = function (req, res) {
+        debugger;
+
         var request = {
             table: tableName,
             model: req.body

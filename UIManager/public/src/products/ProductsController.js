@@ -1,4 +1,5 @@
 (function () {
+
     angular
         .module('products')
         .controller('ProductsController', ['productsService', '$mdSidenav', '$mdBottomSheet', '$log', '$q', ProductsController]);
@@ -8,7 +9,16 @@
         var self = this;
 
         self.currentProduct = '';
-        self.products = productsService.getAllProducts();
+        self.products = null;
+        self.productCategories = null;
 
+        productsService.getAllProducts().promise.then(function (data) {
+            self.products = data;
+        });
+
+
+        productsService.getAllProductCategories().promise.then(function (data) {
+            self.productCategories = data;
+        });
     }
 })();
