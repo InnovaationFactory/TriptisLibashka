@@ -1,7 +1,7 @@
 (function () {
 
     angular
-        .module('TL', ['ngMaterial', 'ngRoute', 'util', 'products'])
+        .module('TL', ['ngMaterial', 'ngRoute', 'products'])
         .config(function ($mdThemingProvider, $mdIconProvider) {
 
             $mdIconProvider
@@ -21,8 +21,7 @@
 
     angular.module('TL').config(function ($routeProvider) {
         $routeProvider.when("/", {
-            templateUrl: "src/products/view/products.html",
-            controller: "ProductsController"
+            templateUrl: "src/products/view/products.html"
         });
     });
 })();

@@ -4,11 +4,11 @@
         .controller('ProductsController', ['productsService', '$mdSidenav', '$mdBottomSheet', '$log', '$q', ProductsController]);
 
 
-    function ProductsController(productsService) {
+    function ProductsController(productsService, $mdSidenav, $mdBottomSheet, $log, $q) {
         var self = this;
 
         self.currentProduct = '';
-        self.products = productService.getAllProducts();
+        self.products = productsService.getAllProducts();
 
     }
 })();

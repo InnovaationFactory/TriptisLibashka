@@ -1,10 +1,10 @@
 (function () {
     'use strict';
 
-    angular.module('products', ['util'])
-        .service('productsService', ['$q', 'util', ProductsService]);
+    angular.module('products')
+        .service('productsService', ['$q', 'APIService', ProductsService]);
 
-    function ProductsService($q, util) {
+    function ProductsService($q, APIService) {
         return {
             getAllProducts: function (productCategory) {
 
@@ -13,7 +13,6 @@
                 var products = APIService.getEntityFromServer('Product', {
                     productCategory: productCategory
                 });
-
 
                 return products;
             },
