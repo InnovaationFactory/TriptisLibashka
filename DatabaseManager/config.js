@@ -12,3 +12,4 @@ module.exports = {
     },
     'dataLimit': 100
 }
+//mongod --dbpath D:\mongo\ data

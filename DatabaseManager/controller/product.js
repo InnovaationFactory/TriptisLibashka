@@ -1,23 +1,11 @@
 (function (product) {
     var data = require('../data'),
+        responseSender = require('../helpers/responseSender'),
         tableName = 'product';
 
     var updateTable = function (request, res) {
         data.update(request, function (err, response) {
-            var result = {
-                isError: false,
-                error: null,
-                data: {}
-            };
-            if (err) {
-                result.isError = true;
-                result.error = err;
-                result.data = null;
-                return res.json(result);
-
-            }
-            result.data = response;
-            res.json(result);
+            responseSender.send(err, response, res);
         });
     }
 
@@ -39,41 +27,22 @@
             };
         }
         data.read(request, function (err, response) {
-            var result = {
-                isError: false,
-                error: null,
-                data: {}
-            };
             if (err) {
-                result.isError = true;
-                result.error = err;
-                result.data = null;
-                return res.json(result);
-
+                return responseSender.send(err, null, res);
             }
-            result.data = response;
-            res.json(result);
+
+            var result = productId ? response[0] : response;
+            responseSender.send(null, result, res);
         });
     };
     product.addProducts = function (req, res) {
-        debugger;
         var request = {
             table: tableName,
             model: req.body
         };
 
         data.create(request, function (err, response) {
-            var result = {
-                isError: false,
-                error: null,
-                data: response
-            };
-            if (err) {
-                result.isError = true;
-                result.error = err;
-                result.data = null;
-            }
-            return res.json(result);
+            responseSender.send(err, response, res);
         });
     };
     product.deleteProducts = function (req, res) {

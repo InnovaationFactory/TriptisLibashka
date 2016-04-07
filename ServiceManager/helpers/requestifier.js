@@ -40,4 +40,14 @@
         }
     };
 
+    requestifier.delete = function (requestifyObj, successCallBack, errorCallBack) {
+        requestify.delete(requestifyObj.url, requestifyObj.options)
+            .then(function (response) {
+                var result = response.getBody();
+                successCallBack(result);
+            }, function (err) {
+                errorCallBack(err);
+            });
+    };
+
 })(module.exports);
