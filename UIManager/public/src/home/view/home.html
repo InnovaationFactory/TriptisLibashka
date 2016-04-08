@@ -1,0 +1,12 @@
+<div ng-controller="HomeController as hc">
+    <div class="full">
+        <uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
+            <uib-slide ng-repeat="slide in hc.slides track by slide.id" index="slide.id">
+                <img class="slide-image" ng-src="{{slide.image}}" style="margin:auto;">
+                <div class="carousel-caption">
+                    <p>{{slide.text}}</p>
+                </div>
+            </uib-slide>
+        </uib-carousel>
+    </div>
+</div>
