@@ -15,9 +15,6 @@
     <!--    <link rel="stylesheet" href="angular-material/angular-material.css" />-->
     <link rel="stylesheet" href="assets/css/app.css" />
 
-
-
-
     <style type="text/css">
         [ng\:cloak],
         [ng-cloak],
@@ -33,21 +30,49 @@
 <!--<body ng-app="TL" layout="row" ng-controller="UserController as ul" ng-cloak>-->
 
 <body ng-app="TL" layout="row" ng-cloak>
-
-    <div class="container">
-
-        <div class="row">
-            <div class="col-lg-2 col-xs-12">
-
+    <header class="navbar navbar-default navbar-fixed-top navbar-inner">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-3" ng-click="isCollapsed = !isCollapsed">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand visible-xs" href="#">Tripti's Libashka</a>
             </div>
-            <div class="col-lg-10">
-                <div ng-view></div>
+            <nav class="hidden-xs">
+                <ul class="nav navbar-nav">
+                    <a href="#top" role="button" class="navbar-brand">
+                    Tripti's Libashka
+                </a>
+                    <li><a href="#getting_started">Categories</a></li>
+                    <li><a href="#getting_started">Profile</a></li>
+                </ul>
+            </nav>
+            <nav class="visible-xs collapse" uib-collapse="!isCollapsed" style="height: 0px;">
+                <ul class="nav navbar-nav">
+                    <li><a href="#getting_started">Categories</a></li>
+                    <li><a href="#getting_started">Profile</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="container main-body">
+        <div ng-view></div>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                    <p>Copyrights &copy; reserver by Tripti's Libashka.</p>
+                </div>
+                <div class="col-xs-12 col-sm-6 text-right">
+                    <p>DC : Hyper link to developers website</p>
+                </div>
             </div>
         </div>
-    </div>
-
-
-
+    </footer>
 
     <script src="angular/angular.js"></script>
     <script src="jquery/dist/jquery.js"></script>
@@ -57,9 +82,7 @@
     <script src="angular-route/angular-route.js"></script>
     <script src="angular-animate/angular-animate.js"></script>
     <script src="angular-aria/angular-aria.js"></script>
-    <script type="text/javascript" src=" angular-material/angular-material.js"></script>
-
-
+    <script type="text/javascript" src="angular-material/angular-material.js"></script>
 
     <!--
     <script src="./src/users/Users.js"></script>

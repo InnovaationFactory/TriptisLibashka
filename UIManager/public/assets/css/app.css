@@ -342,3 +342,31 @@ md-toolbar:not(.md-menu-toolbar) {
     top: 5px;
     right: 40px;
 }
+
+.main-body {
+    margin-top: 60px;
+    min-height: CALC(100% - 30px)
+}
+
+header,
+footer {
+    opacity: 0.3;
+}
+
+header:hover,
+footer:hover {
+    opacity: 1;
+}
+
+.footer {
+    background-color: #f8f8f8;
+    border-color: #e7e7e7;
+}
+
+body {
+    height: CALC(100% - 60px)
+}
+
+html {
+    height: 100%;
+}
