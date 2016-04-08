@@ -2,6 +2,7 @@
 
     var requestifier = require('../helpers/requestifier'),
         cipher = require('../helpers/cipher'),
+        responseSender = require('../helpers/responseSender'),
         config = require('../configuration'),
         stringFormatter = require('../helpers/stringFormatter');
 
@@ -9,8 +10,10 @@
         var requestifyObj = {
             'url': config.DBManager.getUrls('productCategories', req.params.productCategorytId),
         };
-        requestifier.get(requestifyObj, function (err, productResponse) {
-            responseSender.send(err, productResponse, res);
+        requestifier.get(requestifyObj, function (productResponse) {
+            responseSender.send(null, productResponse, res);
+        }, function (err) {
+            responseSender.send(err, null, res);
         });
     };
 
@@ -24,16 +27,20 @@
                 }
             }
         };
-        requestifier.post(requestifyObj, function (err, productResponse) {
-            responseSender.send(err, productResponse, res);
+        requestifier.post(requestifyObj, function (productResponse) {
+            responseSender.send(null, productResponse, res);
+        }, function (err) {
+            responseSender.send(err, null, res);
         });
     };
     productCategory.deleteProductCategory = function (req, res) {
         var requestifyObj = {
             'url': config.DBManager.getUrls('productCategories', req.params.productId)
         };
-        requestifier.delete(requestifyObj, function (err, productResponse) {
-            responseSender.send(err, productResponse, res);
+        requestifier.delete(requestifyObj, function (productResponse) {
+            responseSender.send(null, productResponse, res);
+        }, function (err, productResponse) {
+            responseSender.send(err, null, res);
         });
     };
     productCategory.updateProductCategory = function (req, res) {
@@ -46,8 +53,10 @@
                 }
             }
         };
-        requestifier.put(requestifyObj, function (err, productResponse) {
-            responseSender.send(err, productResponse, res);
+        requestifier.put(requestifyObj, function (productResponse) {
+            responseSender.send(null, productResponse, res);
+        }, function (err) {
+            responseSender.send(err, null, res);
         });
     }
 
