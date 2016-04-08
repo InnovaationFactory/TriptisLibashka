@@ -11,8 +11,10 @@
         var requestifyObj = {
             'url': config.DBManager.getUrls('productDetails', req.params.productId),
         };
-        requestifier.get(requestifyObj, function (err, productResponse) {
-            responseSender.send(err, productResponse, res);
+        requestifier.get(requestifyObj, function (productResponse) {
+            responseSender.send(null, productResponse, res);
+        }, function (err) {
+            responseSender.send(err, null, res);
         });
     };
     product.addProducts = function (req, res) {
@@ -25,16 +27,20 @@
                 }
             }
         };
-        requestifier.post(requestifyObj, function (err, productResponse) {
-            responseSender.send(err, productResponse, res);
+        requestifier.post(requestifyObj, function (productResponse) {
+            responseSender.send(null, productResponse, res);
+        }, function (err) {
+            responseSender.send(err, null, res);
         });
     };
     product.deleteProducts = function (req, res) {
         var requestifyObj = {
             'url': config.DBManager.getUrls('productDetails', req.params.productId)
         };
-        requestifier.delete(requestifyObj, function (err, productResponse) {
-            responseSender.send(err, productResponse, res);
+        requestifier.delete(requestifyObj, function (productResponse) {
+            responseSender.send(null, productResponse, res);
+        }, function (err) {
+            responseSender.send(err, null, res);
         });
     };
     product.updateProducts = function (req, res) {
@@ -48,7 +54,9 @@
             }
         };
         requestifier.put(requestifyObj, function (err, productResponse) {
-            responseSender.send(err, productResponse, res);
+            responseSender.send(null, productResponse, res);
+        }, function (err) {
+            responseSender.send(err, null, res);
         });
     }
 
