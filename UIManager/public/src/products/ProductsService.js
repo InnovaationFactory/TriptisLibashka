@@ -14,8 +14,8 @@
                     url: GLOBALCONFIG.ServiceManager.getUrls('getProductDetails')
                 });
 
-                request.success(function (response) {
-                    deferred.resolve(response.data);
+                request.success(function (data) {
+                    deferred.resolve(data);
                 });
 
                 return deferred;

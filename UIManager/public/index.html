@@ -8,8 +8,16 @@
     <meta name="description" content="">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
     <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'>
-    <link rel="stylesheet" href="angular-material/angular-material.css" />
+
+
+    <link rel='stylesheet' href="bootstrap/dist/css/bootstrap.min.css" />
+    <link rel='stylesheet' href="angular-ui-bootstrap/dist/ui-bootstrap-csp.css" />
+    <!--    <link rel="stylesheet" href="angular-material/angular-material.css" />-->
     <link rel="stylesheet" href="assets/css/app.css" />
+
+
+
+
     <style type="text/css">
         [ng\:cloak],
         [ng-cloak],
@@ -25,43 +33,27 @@
 <!--<body ng-app="TL" layout="row" ng-controller="UserController as ul" ng-cloak>-->
 
 <body ng-app="TL" layout="row" ng-cloak>
-    <div ng-view></div>
 
-    <!--
-    <md-sidenav class="site-sidenav md-sidenav-left md-whiteframe-z2" md-component-id="left" ng-click="ul.toggleList()" aria-label="Show User List" md-is-locked-open="false">
-    <md-toolbar class="md-whiteframe-z1">
-        <h3>Menu</h3>
-    </md-toolbar>
-    <md-list>
-        <md-list-item ng-repeat="it in ul.users">
-            <md-button ng-click="ul.selectUser(it)" ng-class="{'selected' : it === ul.selected }">
-                <img class="avatar" src="{{it.avatar}}" alt="{{it.name}}" /> {{it.name}}
-            </md-button>
-        </md-list-item>
-    </md-list>
-</md-sidenav>   
--->
+    <div class="container">
 
-    <!--
-    <div flex layout="column" tabIndex="-1" role="main" class="md-whiteframe-z2">
-    <md-content flex id="content" class="tl-banner">
-        <md-button id="main" class="menu" ng-click="ul.toggleList()" aria-label="Show User List">
-            <md-icon md-svg-icon="menu"></md-icon>
-        </md-button>
-        <div class="circle-icon-div">
-            <div class="bounce circle-icons icon-1" ng-click="ul.makeContact(ul.selected)"></div>
-            <div class="bounce even circle-icons icon-2"></div>
-            <div class="bounce odd circle-icons icon-3"></div>
+        <div class="row">
+            <div class="col-lg-2 col-xs-12">
+
+            </div>
+            <div class="col-lg-10">
+                <div ng-view></div>
+            </div>
         </div>
-        <div class="vertical-flip" ng-include="ul.selected.content"></div>
-    </md-content>
-</div>
--->
+    </div>
 
 
 
 
     <script src="angular/angular.js"></script>
+    <script src="jquery/dist/jquery.js"></script>
+    <script src="bootstrap/dist/js/bootstrap.js"></script>
+    <script src="angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
+    <script src="angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
     <script src="angular-route/angular-route.js"></script>
     <script src="angular-animate/angular-animate.js"></script>
     <script src="angular-aria/angular-aria.js"></script>
