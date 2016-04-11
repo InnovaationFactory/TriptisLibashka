@@ -12,23 +12,49 @@
         var slides = self.slides = [];
         var currIndex = 0;
 
-        self.addSlide = function () {
-            var newWidth = 600 + slides.length + 1;
-            slides.push({
-                image: 'assets/img/banner.jpg',
-                text: ['Nice image', 'Awesome photograph', 'That is so cool', 'I love that'][slides.length % 4],
-                id: currIndex++
-            });
-        };
+        //        self.addSlide = function () {
+        //            var newWidth = 600 + slides.length + 1;
+        //            slides.push({
+        //                image: 'assets/img/banner.jpg',
+        //                text: ['Nice image', 'Awesome photograph', 'That is so cool', 'I love that'][slides.length % 4],
+        //                id: currIndex++
+        //            });
+        //        };
 
         self.randomize = function () {
             var indexes = generateIndexesArray();
             assignNewIndexesToSlides(indexes);
         };
 
-        for (var i = 0; i < 4; i++) {
-            self.addSlide();
-        }
+
+        slides.push({
+            image: "banner1",
+            text: "Beautiful necklaces",
+            id: 0
+        });
+
+        slides.push({
+            image: "banner2",
+            text: "Exquisite Saree",
+            id: 1
+        });
+
+        slides.push({
+            image: 'banner3',
+            text: "Bridal Dresses",
+            id: 2
+        });
+
+        slides.push({
+            image: 'banner4',
+            text: "Bridal Dresses",
+            id: 3
+        });
+
+
+        //        for (var i = 0; i < 4; i++) {
+        //            self.addSlide();
+        //        }
 
         // Randomize logic below
 

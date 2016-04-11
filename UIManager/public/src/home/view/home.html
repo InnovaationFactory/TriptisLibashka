@@ -1,12 +1,47 @@
 <div ng-controller="HomeController as hc">
     <div class="full">
-        <uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
+
+
+        <uib-carousel active="active" interval="hc.myInterval" no-wrap="noWrapSlides">
             <uib-slide ng-repeat="slide in hc.slides track by slide.id" index="slide.id">
-                <img class="slide-image" ng-src="{{slide.image}}" style="margin:auto;">
-                <div class="carousel-caption">
+
+                <!--
+        <img class="slide-image" ng-src="{{slide.image}}" style="margin:auto;">
+        <div class="carousel-caption">
+            <p>{{slide.text}}</p>
+        </div>
+-->
+
+
+                <div class="banner-content" ng-class="slide.image">
+                    <div style="margin-left:30px;text-align:center;position:absolute;bottom:0px;">
+                        <di>
+                            <h1> {{slide.text}} </h1>explore more
+                            <br/>
+                    </div>
+                </div>
+
+                <div class="carousel-caption pull-right">
                     <p>{{slide.text}}</p>
                 </div>
-            </uib-slide>
-        </uib-carousel>
     </div>
+    </uib-slide>
+    </uib-carousel>
+
+
+
+
+    <!--
+        <div ng-repeat="slide in hc.slides track by slide.id" index="slide.id">
+            <img class="slide-image" ng-src="{{slide.image}}" style="margin:auto;">
+            <div class="banner-content" ng-class="slide.image">
+                <div style="margin-top:-100px;margin-left:30px;text-align:left;">
+                    <div style="padding-top:40px;">
+                        <h1> {{slide.text}} </h1>explore more</div>
+                </div>
+            </div>
+        </div>
+-->
+
+</div>
 </div>
