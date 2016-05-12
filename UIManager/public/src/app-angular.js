@@ -24,6 +24,8 @@
             templateUrl: "src/home/view/home.html"
         }).when("/products", {
             templateUrl: "src/products/view/products.html"
+        }).when("/categories", {
+            templateUrl: "src/productCategories/view/productCategories.html"
         });
     });
 })();

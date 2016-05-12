@@ -1,8 +1,11 @@
 (function (controller) {
     controller.init = function (app) {
-        var user = require('./user');
-        var product = require('./product');
-        var productCategory = require('./productCategory');
+        var defaultConfigSetup = require('./defaultConfigSetup'),
+            user = require('./user'),
+            product = require('./product'),
+            productCategory = require('./productCategory');
+
+        defaultConfigSetup.insertDefaultCategories();
 
         app.get('/api/users/:username?', user.getUserDetails);
         app.post('/api/users', user.addUser);

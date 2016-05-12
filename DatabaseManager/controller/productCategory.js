@@ -23,7 +23,6 @@
                     }, {
                     IsActive: true
                     }]
-
             };
         }
         data.read(request, function (err, response) {
@@ -34,6 +33,7 @@
             responseSender.send(null, result, res);
         });
     };
+
     productCategory.addProductCategory = function (req, res) {
         var request = {
             table: tableName,
@@ -44,6 +44,7 @@
             responseSender.send(err, response, res);
         });
     };
+
     productCategory.deleteProductCategory = function (req, res) {
         var request = {};
         request.table = tableName;
@@ -55,6 +56,7 @@
         };
         updateTable(request, res);
     };
+
     productCategory.updateProductCategory = function (req, res) {
         var request = {
             table: tableName,
