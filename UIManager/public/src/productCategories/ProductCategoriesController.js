@@ -1,15 +1,15 @@
 (function () {
     angular
-        .module('ProductCategories')
-        .controller('ProductCategoriesController', ['ProductCategoryService', '$mdSidenav', '$mdBottomSheet', '$log', '$q', ProductCategoriesController]);
+        .module('productcategories')
+        .controller('productcategoriesController', ['productcategoriesService', '$mdSidenav', '$mdBottomSheet', '$log', '$q', productcategoriesController]);
 
 
-    function ProductCategoriesController(ProductCategoryService, $mdSidenav, $mdBottomSheet, $log, $q) {
+    var productcategoriesController = function (productcategoriesService, $mdSidenav, $mdBottomSheet, $log, $q) {
         var self = this;
 
         self.productCategories = null;
 
-        ProductCategoryService.getAllProductCategories().promise.then(function (data) {
+        productcategoriesService.getAllProductCategories().promise.then(function (data) {
             self.productCategories = data;
         });
     }

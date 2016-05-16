@@ -1,10 +1,10 @@
 (function () {
     'use strict'
 
-    angular.module('ProductCategories')
-        .service('ProductCategoryService', ['$q', '$http', 'APIService', ProductCategoryService]);
+    angular.module('productcategories')
+        .service('productcategoriesService', ['$q', '$http', 'APIService', ProductCategoriesService]);
 
-    function ProductCategoryService($q, $http, APIService) {
+    function ProductCategoriesService($q, $http, APIService) {
         return {
             getAllProductCategories: function () {
                 var deferred = $q.defer();

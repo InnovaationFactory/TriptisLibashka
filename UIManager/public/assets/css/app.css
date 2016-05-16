@@ -344,10 +344,11 @@ md-toolbar:not(.md-menu-toolbar) {
 }
 
 .main-body {
-    margin-top: 60px;
     min-height: CALC(100% - 30px)
 }
 
+
+/*
 header,
 footer {
     opacity: 0.3;
@@ -357,6 +358,7 @@ header:hover,
 footer:hover {
     opacity: 1;
 }
+*/
 
 .footer {
     background-color: #f8f8f8;
@@ -373,7 +375,7 @@ html {
 
 .full {
     /*    margin-top: 40px;*/
-    position: absolute;
+    /*    position: absolute;*/
     top: 0;
     left: 0;
     width: 100%;
