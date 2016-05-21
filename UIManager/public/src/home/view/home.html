@@ -1,18 +1,7 @@
 <div ng-controller="HomeController as hc">
     <div class="full">
-
-
         <uib-carousel active="active" interval="hc.myInterval" no-wrap="noWrapSlides">
             <uib-slide ng-repeat="slide in hc.slides track by slide.id" index="slide.id">
-
-                <!--
-        <img class="slide-image" ng-src="{{slide.image}}" style="margin:auto;">
-        <div class="carousel-caption">
-            <p>{{slide.text}}</p>
-        </div>
--->
-
-
                 <div class="banner-content" ng-class="slide.image">
                     <div style="margin-left:30px;text-align:center;position:absolute;bottom:0px;">
                         <di>
@@ -27,11 +16,8 @@
     </div>
     </uib-slide>
     </uib-carousel>
-
-
     <br/>
     <br/>
-
     <div class="new-product-area-home-two">
         <div class="container">
             <div class="row">
@@ -45,21 +31,20 @@
                 <div class="col-md-6">
                     <div class="single-product">
                         <div class="item-top">
-                            <a href="#"><img src="img/product/p-l-1.jpg" alt=""></a>
+                            <a href="#"><img src="assets/img/banner.jpg" alt=""></a>
                             <div class="button-container">
                                 <ul>
-                                    <li><a href="cart.html"><i class="pe-7s-cart"></i></a></li>
-                                    <li><a href="wishlist.html"><i class="pe-7s-like"></i></a></li>
-                                    <li><a href="#"><i class="pe-7s-copy-file"></i></a></li>
-                                    <li><a class="modal-view" href="#" data-toggle="modal" data-target="#productModal"><i class="pe-7s-search"></i></a></li>
+                                    <li>
+                                        <li><a href="cart.html"><i class="pe-7s-cart"></i></a></li>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
                         <div class="item-bottom">
-                            <h5><a class="product-name" href="#">Fasionable Bags</a></h5>
+                            <h5><a class="product-name" href="#">Fasionable Bangles</a></h5>
                             <div class="price-rating-container">
                                 <div class="price-box">
-                                    <span>£ 68.97</span>
+                                    <span>Starting £ 68.97</span>
                                 </div>
                                 <div class="rating-right">
                                     <div class="star-content">
@@ -73,36 +58,60 @@
                             </div>
                         </div>
                     </div>
+                    <div class="single-product">
+                        <div class="item-top">
+                            <a class="text-center" href="#"><img src="assets/img/earring.png" style="width:300px"></a>
+                            <div class="button-container">
+                                <ul>
+                                    <li><a href="cart.html"><i class="pe-7s-cart"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="item-bottom">
+                            <h5><a class="product-name" href="#">Exclusive Earings</a></h5>
+                            <div class="price-rating-container">
+                                <div class="price-box">
+                                    <span>£ 100.47</span>
+                                </div>
+                                <div class="rating-right">
+                                    <div class="star-content">
+                                        <div class="star"></div>
+                                        <div class="star"></div>
+                                        <div class="star"></div>
+                                        <div class="star"></div>
+                                        <div class="star inactive"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-6">
                     <div class="new-products-carousel">
                         <div class="single-product-item">
                             <div class="single-product">
                                 <div class="item-top">
-                                    <a href="#"><img src="img/product/p-3.jpg" alt=""></a>
+                                    <a href="#" class="text-center"><img src="assets/img/bangle.png" alt="" style="width:300px"></a>
                                     <div class="button-container">
                                         <ul>
                                             <li><a href="cart.html"><i class="pe-7s-cart"></i></a></li>
-                                            <li><a href="wishlist.html"><i class="pe-7s-like"></i></a></li>
-                                            <li><a href="#"><i class="pe-7s-copy-file"></i></a></li>
-                                            <li><a class="modal-view" href="#" data-toggle="modal" data-target="#productModal"><i class="pe-7s-search"></i></a></li>
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="item-bottom">
-                                    <h5><a class="product-name" href="#">Printed Dress</a></h5>
+                                    <h5><a class="product-name" href="#">Trendy Bangles</a></h5>
                                     <div class="price-rating-container">
                                         <div class="price-box">
-                                            <span>£ 61.19</span>
-                                            <span class="old-price">£ 31.20</span>
+                                            <span>Flat 50% Discount £ 61.19</span>
+                                            <span class="old-price">£ 120.20</span>
                                         </div>
                                         <div class="rating-right">
                                             <div class="star-content">
                                                 <div class="star"></div>
                                                 <div class="star"></div>
                                                 <div class="star"></div>
-                                                <div class="star"></div>
-                                                <div class="star"></div>
+                                                <div class="star inactive"></div>
+                                                <div class="star inactive"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -110,18 +119,20 @@
                             </div>
                             <div class="single-product">
                                 <div class="item-top">
-                                    <a href="#"><img src="img/product/p-2.jpg" alt=""></a>
+                                    <a class="text-center" href="#"><img src="assets/img/necklace.png" style="width:300px"></a>
                                     <div class="button-container">
                                         <ul>
                                             <li><a href="cart.html"><i class="pe-7s-cart"></i></a></li>
+                                            <!--
                                             <li><a href="wishlist.html"><i class="pe-7s-like"></i></a></li>
-                                            <li><a href="#"><i class="pe-7s-copy-file"></i></a></li>
-                                            <li><a class="modal-view" href="#" data-toggle="modal" data-target="#productModal"><i class="pe-7s-search"></i></a></li>
+<li><a href="#"><i class="pe-7s-copy-file"></i></a></li>
+<li><a class="modal-view" href="#" data-toggle="modal" data-target="#productModal"><i class="pe-7s-search"></i></a></li>
+-->
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="item-bottom">
-                                    <h5><a class="product-name" href="#">Sunglass</a></h5>
+                                    <h5><a class="product-name" href="#">Latest Necklaces</a></h5>
                                     <div class="price-rating-container">
                                         <div class="price-box">
                                             <span>£ 21.09</span>
@@ -133,141 +144,47 @@
                                                 <div class="star"></div>
                                                 <div class="star"></div>
                                                 <div class="star"></div>
-                                                <div class="star"></div>
+                                                <div class="star inactive"></div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="single-product-item">
-                            <div class="single-product">
-                                <div class="item-top">
-                                    <a href="#"><img src="img/product/p-1.jpg" alt=""></a>
-                                    <div class="button-container">
-                                        <ul>
-                                            <li><a href="cart.html"><i class="pe-7s-cart"></i></a></li>
-                                            <li><a href="wishlist.html"><i class="pe-7s-like"></i></a></li>
-                                            <li><a href="#"><i class="pe-7s-copy-file"></i></a></li>
-                                            <li><a class="modal-view" href="#" data-toggle="modal" data-target="#productModal"><i class="pe-7s-search"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="item-bottom">
-                                    <h5><a class="product-name" href="#">Faded Short Sleeves T-shirt</a></h5>
-                                    <div class="price-rating-container">
-                                        <div class="price-box">
-                                            <span>£ 19.78</span>
-                                        </div>
-                                        <div class="rating-right">
-                                            <div class="star-content">
-                                                <div class="star"></div>
-                                                <div class="star"></div>
-                                                <div class="star"></div>
-                                                <div class="star"></div>
-                                                <div class="star"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="single-product">
-                                <div class="item-top">
-                                    <a href="#"><img src="img/product/p-4.jpg" alt=""></a>
-                                    <div class="button-container">
-                                        <ul>
-                                            <li><a href="cart.html"><i class="pe-7s-cart"></i></a></li>
-                                            <li><a href="wishlist.html"><i class="pe-7s-like"></i></a></li>
-                                            <li><a href="#"><i class="pe-7s-copy-file"></i></a></li>
-                                            <li><a class="modal-view" href="#" data-toggle="modal" data-target="#productModal"><i class="pe-7s-search"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="item-bottom">
-                                    <h5><a class="product-name" href="#">Exclusive Watch</a></h5>
-                                    <div class="price-rating-container">
-                                        <div class="price-box">
-                                            <span>£ 61.47</span>
-                                        </div>
-                                        <div class="rating-right">
-                                            <div class="star-content">
-                                                <div class="star"></div>
-                                                <div class="star"></div>
-                                                <div class="star"></div>
-                                                <div class="star"></div>
-                                                <div class="star"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="single-product-item">
-                            <div class="single-product">
-                                <div class="item-top">
-                                    <a href="#"><img src="img/product/p-5.jpg" alt=""></a>
-                                    <div class="button-container">
-                                        <ul>
-                                            <li><a href="cart.html"><i class="pe-7s-cart"></i></a></li>
-                                            <li><a href="wishlist.html"><i class="pe-7s-like"></i></a></li>
-                                            <li><a href="#"><i class="pe-7s-copy-file"></i></a></li>
-                                            <li><a class="modal-view" href="#" data-toggle="modal" data-target="#productModal"><i class="pe-7s-search"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="item-bottom">
-                                    <h5><a class="product-name" href="#">Sunglass</a></h5>
-                                    <div class="price-rating-container">
-                                        <div class="price-box">
-                                            <span>£ 19.78</span>
-                                        </div>
-                                        <div class="rating-right">
-                                            <div class="star-content">
-                                                <div class="star"></div>
-                                                <div class="star"></div>
-                                                <div class="star"></div>
-                                                <div class="star"></div>
-                                                <div class="star"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="single-product">
-                                <div class="item-top">
-                                    <a href="#"><img src="img/product/p-6.jpg" alt=""></a>
-                                    <div class="button-container">
-                                        <ul>
-                                            <li><a href="cart.html"><i class="pe-7s-cart"></i></a></li>
-                                            <li><a href="wishlist.html"><i class="pe-7s-like"></i></a></li>
-                                            <li><a href="#"><i class="pe-7s-copy-file"></i></a></li>
-                                            <li><a class="modal-view" href="#" data-toggle="modal" data-target="#productModal"><i class="pe-7s-search"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="item-bottom">
-                                    <h5><a class="product-name" href="#">Fasionable Bags</a></h5>
-                                    <div class="price-rating-container">
-                                        <div class="price-box">
-                                            <span>£ 68.97</span>
-                                        </div>
-                                        <div class="rating-right">
-                                            <div class="star-content">
-                                                <div class="star"></div>
-                                                <div class="star"></div>
-                                                <div class="star"></div>
-                                                <div class="star"></div>
-                                                <div class="star"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <!--
+                       <div class="single-product-item">
+    <div class="single-product">
+        <div class="item-top">
+            <a class="text-center" href="#"><img src="assets/img/clothing.png" style="width:200px"></a>
+            <div class="button-container">
+                <ul>
+                    <li><a href="cart.html"><i class="pe-7s-cart"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="item-bottom">
+            <h5><a class="product-name" href="#">Faded Women Hand Bags</a></h5>
+            <div class="price-rating-container">
+                <div class="price-box">
+                    <span>£ 20.78</span>
+                </div>
+                <div class="rating-right">
+                    <div class="star-content">
+                        <div class="star"></div>
+                        <div class="star"></div>
+                        <div class="star"></div>
+                        <div class="star"></div>
+                        <div class="star"></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

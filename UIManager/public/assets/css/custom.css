@@ -1,69 +1,3 @@
-/*-----------------------------------------------------------------------------------
-
-    Template Name: Bachas
-    Template URI: http://bootexperts.com
-    Description: This is html5 template
-    Author: BootExperts
-    Author URI: http://bootexperts.com
-    Version: 1.0
-
------------------------------------------------------------------------------------
-    
-    CSS INDEX
-    ===================
-	
-    1. Theme Default CSS (body, link color, section etc)
-    2. Header Area
-        2.1 Logo
-        2.2 Mainmenu Area
-            2.2.1 Dropdown Menu
-            2.2.2 Mega Menu
-            2.2.3 Mobile Menu
-        2.3 Search Box, Cart button
-    3. Slider Area
-    4. Banner Area
-    5. Product Carousel Area
-    6. Carousel Styles
-    7. New Product Area
-    8. Featured Product Area
-    9. Service Area
-    10. Blog Area
-    11. Brand Area
-    12. Newsletter Area
-    13. Footer Widget Area
-    14. Footer Area
-    15. Homepage Two Start
-    16. Homepage Three Start
-        16.1 Header Area
-        16.2 Testimonial Blog Area
-    17. Homepage Four Start
-    18. Shop Grid/List Page Start
-        18.1 Shop Grid/List Sidebar
-        18.2 Shop Grid/List Content
-    19. Product Details Page Start
-        19.1 Product Details Left Column
-        19.2 Product Details Center Column
-        19.3 Product Details Right Column
-    20. Cart Page Start
-    21. Checkout Page Start
-    22. Wishlist Page Start
-    23. My Account Page Start
-    24. Contact Page Start
-    25. About Page Start
-    26. Blog Page Start
-    27. Blog Details Page Start
-    28. 404 Page Start
-    29. Product Modal
-    30. Scroll Up Start
------------------------------------------------------------------------------------*/
-
-
-/*----------------------------------------*/
-
-
-/*  1.  Theme default CSS
-/*----------------------------------------*/
-
 html,
 body {
     height: 100%;
@@ -222,7 +156,7 @@ body {
     background: #ffffff none repeat scroll 0 0;
     bottom: -11px;
     color: #cf5c7c;
-    content: "î™";
+    content: "★";
     display: block;
     font-family: "Pe-icon-7-stroke";
     font-size: 18px;
@@ -412,7 +346,7 @@ body {
 
 .mainmenu ul#nav li .megamenu span > a:before,
 .mainmenu ul#nav li .sub-menu li > a:before {
-    content: "\f101";
+    content: "❄";
     font-family: fontawesome;
     margin-right: 10px;
 }
@@ -1228,9 +1162,16 @@ ul.header-r-cart li:hover .mini-cart-content {
     display: block
 }
 
-div.star::after {
+div.star.inactive::after {
     color: #cbcbcb;
-    content: "\f006";
+    content: "★";
+    display: inline-block;
+    font-family: "FontAwesome";
+}
+
+div.star::after {
+    color: gold;
+    content: "★";
     display: inline-block;
     font-family: "FontAwesome";
 }

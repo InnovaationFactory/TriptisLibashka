@@ -398,6 +398,7 @@ body {
     height: 500px;
     background-repeat: no-repeat;
     background-position: center;
+    background-attachment: fixed;
     background-size: 100%;
 }
 
@@ -415,4 +416,10 @@ body {
 
 .banner4 {
     background-image: url('../img/banner2.png');
+}
+
+.pe-7s-cart {
+    width: 33px;
+    height: 37px;
+    content: url('../img/cart.png');
 }
