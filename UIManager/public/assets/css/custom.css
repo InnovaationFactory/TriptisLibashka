@@ -1170,7 +1170,7 @@ ul.header-r-cart li:hover .mini-cart-content {
     display: block
 }
 
-div.star.inactive::after {
+div.star. inactive::after {
     color: #cbcbcb;
     content: "★";
     display: inline-block;
