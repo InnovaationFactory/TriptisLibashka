@@ -17,6 +17,22 @@
             responseSender.send(err, null, res);
         });
     };
+
+    product.getProductsByCategory = (function (req, res) {
+
+        debugger;
+
+        //pass category id here
+        var requestifyObj = {
+            'url': config.DBManager.getUrls('productsByCategory', req.params.categoryID)
+        };
+        requestifier.get(requestifyObj, function (productResponse) {
+            responseSender.send(null, productResponse, res);
+        }, function (err) {
+            responseSender.send(err, null, res);
+        });
+    });
+
     product.addProducts = function (req, res) {
         var requestifyObj = {
             url: config.DBManager.getUrls('productDetails'),

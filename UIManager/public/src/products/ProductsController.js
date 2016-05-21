@@ -2,23 +2,25 @@
 
     angular
         .module('products')
-        .controller('ProductsController', ['productsService', '$mdSidenav', '$mdBottomSheet', '$log', '$q', ProductsController]);
+        .controller('ProductsController', ['productsService', '$routeParams', '$mdSidenav', '$mdBottomSheet', '$log', '$q', ProductsController]);
 
 
-    function ProductsController(productsService, $mdSidenav, $mdBottomSheet, $log, $q) {
+    function ProductsController(productsService, $routeParams, $mdSidenav, $mdBottomSheet, $log, $q) {
         var self = this;
 
         self.currentProduct = '';
         self.products = null;
-        self.productCategories = null;
-
-        productsService.getAllProducts().promise.then(function (data) {
-            self.products = data;
-        });
+        //self.productCategories = null;
 
 
-        productsService.getAllProductCategories().promise.then(function (data) {
-            self.productCategories = data;
-        });
+        if ($routeParams.categoryID) {
+            productsService.getProductsByCategory($routeParams.categoryID).promise.then(function (data) {
+                self.products = data;
+            })
+        } else {
+            productsService.getAllProducts().promise.then(function (data) {
+                self.products = data;
+            });
+        }
     }
 })();

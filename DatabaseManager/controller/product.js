@@ -68,5 +68,34 @@
         };
         updateTable(request, res);
     }
+    product.getProductsByCategory = function (req, res) {
+        var request = {};
+        request.table = tableName;
+        request.query = {
+            IsActive: true
+        };
+        var categoryID = req.params.categoryID;
+
+        debugger;
+
+//        if (categoryID) {
+      //            request.query = {
+      //                $and: [{
+      //                    "Category": categoryID
+      //                    }, {
+      //                    IsActive: true
+      //                    }]
+      //
+      //            };
+      //        }
+        data.read(request, function (err, response) {
+            if (err) {
+                return responseSender.send(err, null, res);
+            }
+
+            //send all products found belonging to current category
+            responseSender.send(null, response, res);
+        });
+    }
 
 })(module.exports);

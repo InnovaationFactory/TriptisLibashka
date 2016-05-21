@@ -15,6 +15,10 @@
             .delete(product.deleteProducts)
             .put(product.updateProducts);
 
+
+        router.route('/productsByCategory/:categoryID')
+            .get(product.getProductsByCategory);
+
         router.route('/productCategories')
             .post(productCategory.addProductCategory)
             .get(productCategory.getProductCategoryDetails);

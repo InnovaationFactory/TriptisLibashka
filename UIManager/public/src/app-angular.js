@@ -22,10 +22,12 @@
     angular.module('TL').config(function ($routeProvider) {
         $routeProvider.when("/", {
             templateUrl: "src/home/view/home.html"
-        }).when("/products", {
+        }).when("/products:", {
             templateUrl: "src/products/view/products.html"
-        }).when("/categories", {
+        }).when("/categories/:categorytype", {
             templateUrl: "src/productCategories/view/productCategories.html"
+        }).when("/categories/:categoryID/products", {
+            templateUrl: "src/products/view/products.html"
         });
     });
 })();

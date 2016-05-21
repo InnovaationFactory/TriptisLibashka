@@ -5,7 +5,8 @@ var GLOBALCONFIG = {
         port: ":50000",
         urls: {
             getProductDetails: '/api/products',
-            getProductCategories: '/api/productCategories'
+            getProductCategories: '/api/productCategories',
+            getProductByCategory: '/api/productsByCategory'
         },
         getUrls: function (key, id) { //This function will return a well formed url with one path parameter at the end of url(if parameter exist).
             return this.protocol + this.host + this.port + this.urls[key] + (id ? "/" + id : '');
