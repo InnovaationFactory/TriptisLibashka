@@ -35,19 +35,19 @@
 
         slides.push({
             image: "banner2",
-            text: "Exquisite Saree",
+            text: "Exquisite Jwellery",
             id: 1
         });
 
         slides.push({
             image: 'banner3',
-            text: "Bridal Dresses",
+            text: "Bridal Bangles",
             id: 2
         });
 
         slides.push({
             image: 'banner4',
-            text: "Bridal Dresses",
+            text: "Bridal Jwellery",
             id: 3
         });
 
