@@ -1,5 +1,5 @@
 <div ng-controller="HomeController as hc">
-    <div class="full">
+    <div class="full hidden-xs">
         <uib-carousel active="active" interval="hc.myInterval" no-wrap="noWrapSlides">
             <uib-slide ng-repeat="slide in hc.slides track by slide.id" index="slide.id">
                 <div class="banner-content" ng-class="slide.image">
@@ -28,160 +28,34 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6">
-                    <div class="single-product">
+                <div class="col-sm-6 col-lg-4" ng-repeat="product in hc.newProducts">
+                    <div class="single-product md-card">
                         <div class="item-top">
-                            <a href="#"><img src="assets/img/banner.jpg"></a>
+                            <a href="#"><img src="{{product.imageUrl}}"></a>
                             <div class="button-container">
                                 <ul>
                                     <li>
+                                        <li><a href="cart.html" ng-click="hc.addToCart(product)"><i class="pe-7s-cart"></i></a></li>
                                         <li><a href="cart.html"><i class="pe-7s-cart"></i></a></li>
                                     </li>
                                 </ul>
                             </div>
                         </div>
                         <div class="item-bottom">
-                            <h5><a class="product-name" href="#">Fasionable Bangles</a></h5>
+                            <h5><a class="product-name" href="#">{{product.name}}</a></h5>
                             <div class="price-rating-container">
                                 <div class="price-box">
-                                    <span>Starting £ 68.97</span>
+                                    <span><strong>{{product.currency}} {{product.price}} </strong></span>
+                                    <span class="old-price" ng-if="product.oldPrice">{{product.currency}} {{product.oldPrice}}</span>
+                                    <span class="comment" ng-if="product.comment">{{product.comment}}</span>
                                 </div>
                                 <div class="rating-right">
                                     <div class="star-content">
-                                        <div class="star"></div>
-                                        <div class="star"></div>
-                                        <div class="star"></div>
-                                        <div class="star"></div>
-                                        <div class="star"></div>
+                                        <div class="star" ng-repeat="rating in hc.getArray(product.rating) track by $index"></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="single-product">
-                        <div class="item-top">
-                            <a class="text-center" href="#"><img src="assets/img/earring.png" style="width:300px"></a>
-                            <div class="button-container">
-                                <ul>
-                                    <li><a href="cart.html"><i class="pe-7s-cart"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="item-bottom">
-                            <h5><a class="product-name" href="#">Exclusive Earings</a></h5>
-                            <div class="price-rating-container">
-                                <div class="price-box">
-                                    <span>£ 100.47</span>
-                                </div>
-                                <div class="rating-right">
-                                    <div class="star-content">
-                                        <div class="star"></div>
-                                        <div class="star"></div>
-                                        <div class="star"></div>
-                                        <div class="star"></div>
-                                        <div class="star inactive"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="new-products-carousel">
-                        <div class="single-product-item">
-                            <div class="single-product">
-                                <div class="item-top">
-                                    <a href="#" class="text-center"><img src="assets/img/bangle.png" alt="" style="width:300px"></a>
-                                    <div class="button-container">
-                                        <ul>
-                                            <li><a href="cart.html"><i class="pe-7s-cart"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="item-bottom">
-                                    <h5><a class="product-name" href="#">Trendy Bangles</a></h5>
-                                    <div class="price-rating-container">
-                                        <div class="price-box">
-                                            <span>Flat 50% Discount £ 61.19</span>
-                                            <span class="old-price">£ 120.20</span>
-                                        </div>
-                                        <div class="rating-right">
-                                            <div class="star-content">
-                                                <div class="star"></div>
-                                                <div class="star"></div>
-                                                <div class="star"></div>
-                                                <div class="star inactive"></div>
-                                                <div class="star inactive"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="single-product">
-                                <div class="item-top">
-                                    <a class="text-center" href="#"><img src="assets/img/necklace.png" style="width:300px"></a>
-                                    <div class="button-container">
-                                        <ul>
-                                            <li><a href="cart.html"><i class="pe-7s-cart"></i></a></li>
-                                            <!--
-                                            <li><a href="wishlist.html"><i class="pe-7s-like"></i></a></li>
-<li><a href="#"><i class="pe-7s-copy-file"></i></a></li>
-<li><a class="modal-view" href="#" data-toggle="modal" data-target="#productModal"><i class="pe-7s-search"></i></a></li>
--->
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="item-bottom">
-                                    <h5><a class="product-name" href="#">Latest Necklaces</a></h5>
-                                    <div class="price-rating-container">
-                                        <div class="price-box">
-                                            <span>£ 21.09</span>
-                                            <span class="old-price">£ 32.50</span>
-                                        </div>
-                                        <div class="rating-right">
-                                            <div class="star-content">
-                                                <div class="star"></div>
-                                                <div class="star"></div>
-                                                <div class="star"></div>
-                                                <div class="star"></div>
-                                                <div class="star inactive"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--
-                       <div class="single-product-item">
-    <div class="single-product">
-        <div class="item-top">
-            <a class="text-center" href="#"><img src="assets/img/clothing.png" style="width:200px"></a>
-            <div class="button-container">
-                <ul>
-                    <li><a href="cart.html"><i class="pe-7s-cart"></i></a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="item-bottom">
-            <h5><a class="product-name" href="#">Faded Women Hand Bags</a></h5>
-            <div class="price-rating-container">
-                <div class="price-box">
-                    <span>£ 20.78</span>
-                </div>
-                <div class="rating-right">
-                    <div class="star-content">
-                        <div class="star"></div>
-                        <div class="star"></div>
-                        <div class="star"></div>
-                        <div class="star"></div>
-                        <div class="star"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
--->
                     </div>
                 </div>
 

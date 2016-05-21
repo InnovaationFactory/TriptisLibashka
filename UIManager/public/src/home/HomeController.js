@@ -4,7 +4,7 @@
         .module('home')
         .controller('HomeController', ['productsService', HomeController]);
 
-    function HomeController() {
+    function HomeController(productsService) {
         var self = this;
         self.myInterval = 5000;
         self.noWrapSlides = false;
@@ -58,6 +58,11 @@
 
         // Randomize logic below
 
+        var newProducts = productsService.getAllNewProducts();
+        newProducts.promise.then(function (data) {
+            self.newProducts = data;
+        });
+
         function assignNewIndexesToSlides(indexes) {
             for (var i = 0, l = slides.length; i < l; i++) {
                 slides[i].id = indexes.pop();
@@ -72,6 +77,9 @@
             return shuffle(indexes);
         }
 
+        self.getArray = function (num) {
+            return new Array(num);
+        };
         // http://stackoverflow.com/questions/962802#962890
         function shuffle(array) {
             var tmp, current, top = array.length;

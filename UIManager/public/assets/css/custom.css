@@ -884,7 +884,7 @@ ul.header-r-cart li:hover .mini-cart-content {
     overflow: hidden;
     position: relative;
     max-height: 350px;
-    border: #f1f1f1 solid 1px;
+    /*    border: #f1f1f1 solid 1px;*/
 }
 
 .single-product .item-top {
@@ -1136,6 +1136,7 @@ ul.header-r-cart li:hover .mini-cart-content {
     font-weight: 500;
     line-height: 20px;
     margin-bottom: 0;
+    margin-left: 2px;
 }
 
 .price-rating-container {
