@@ -1,16 +1,23 @@
 (function () {
-    angular
-        .module('productcategories')
-        .controller('productcategoriesController', ['productcategoriesService', '$mdSidenav', '$mdBottomSheet', '$log', '$q', productcategoriesController]);
+    'use strict'
+    angular.module('productcategories').controller('ProductCategoriesController', ['productcategoriesService', '$routeParams', '$mdSidenav', '$mdBottomSheet', '$log', '$q', ProductCategoriesController]);
 
 
-    var productcategoriesController = function (productcategoriesService, $mdSidenav, $mdBottomSheet, $log, $q) {
+    function ProductCategoriesController(productcategoriesService, $routeParams, $mdSidenav, $mdBottomSheet, $log, $q) {
         var self = this;
 
         self.productCategories = null;
+        self.productCategory = null;
 
-        productcategoriesService.getAllProductCategories().promise.then(function (data) {
-            self.productCategories = data;
-        });
+        if ($routeParams.categoryID) {
+            productcategoriesService.getProductCategoryByID($routeParams.categoryID).promise.then(function (data) {
+                self.productCategory = data;
+            });
+
+        } else {
+            productcategoriesService.getAllProductCategories().promise.then(function (data) {
+                self.productCategories = data;
+            });
+        }
     }
 })();

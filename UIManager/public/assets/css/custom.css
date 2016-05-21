@@ -888,7 +888,7 @@ ul.header-r-cart li:hover .mini-cart-content {
 }
 
 .single-product .item-top {
-    overflow: auto;
+    overflow: hidden;
     position: relative;
 }
 

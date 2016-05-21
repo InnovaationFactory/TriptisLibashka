@@ -19,6 +19,28 @@
                 });
 
                 return deferred;
+            },
+            getProductCategoryByID: function () {
+                //read individual records to create subcategories. Is this the nosql way of doing this?
+
+                var deferred = $q.defer();
+
+                deferred.resolve({
+                    ID: 100001,
+                    Name: 'Jewellary',
+                    Categories: [
+                        {
+                            ID: 100100,
+                            Name: 'Bnagles'
+                        },
+                        {
+                            ID: 100101,
+                            Name: 'Earings'
+                        }
+                    ]
+                });
+
+                return deferred;
             }
         };
     }

@@ -21,28 +21,30 @@
                 return deferred;
 
             },
-            getAllProductsById(productId) {
+            getProductsById(productId) {
 
             },
             searchProducts: function (searchKey) {
 
             },
-            getAllProductCategories: function () {
+            getProductsByCategory: function (categoryID) {
                 var deferred = $q.defer();
 
+                //check for undefined
                 var request = $http({
                     method: "get",
-                    url: GLOBALCONFIG.ServiceManager.getUrls('getProductCategories')
+                    url: GLOBALCONFIG.ServiceManager.getUrls('getProductByCategory') + "/" + categoryID
                 });
 
-                request.success(function (response) {
-                    deferred.resolve(response.data);
+                request.success(function (data) {
+                    deferred.resolve(data);
                 });
 
                 return deferred;
             },
             getAllNewProducts: function () {
                 var deferred = $q.defer();
+
                 //                var request = $http({
                 //                    method: "get",
                 //                    url: GLOBALCONFIG.ServiceManager.getUrls('getProductCategories')

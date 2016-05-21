@@ -2,10 +2,10 @@
 
     angular
         .module('products')
-        .controller('ProductsController', ['productsService', '$routeParams', '$mdSidenav', '$mdBottomSheet', '$log', '$q', ProductsController]);
+        .controller('ProductsController', ['productsService', 'productcategoriesService', '$routeParams', '$mdSidenav', '$mdBottomSheet', '$log', '$q', ProductsController]);
 
 
-    function ProductsController(productsService, $routeParams, $mdSidenav, $mdBottomSheet, $log, $q) {
+    function ProductsController(productsService, productcategoriesService, $routeParams, $mdSidenav, $mdBottomSheet, $log, $q) {
         var self = this;
 
         self.currentProduct = '';

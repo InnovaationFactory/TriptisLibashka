@@ -1,6 +1,5 @@
-<div ng-controller="ProductsController as pc">
-    <div>Product List</div>
-
+<div>
+    <!--    <div>Product List</div>-->
     <!--
     <div>
         <div ng-repeat="productCategory in pc.productCategories">
@@ -8,10 +7,58 @@
         </div>
     </div>
 -->
+    <!--
     <div>
         <div ng-repeat="product in pc.products">
             <div>{{product.Name}}</div>
         </div>
     </div>
+-->
+
+    <div class="row">
+        <div class="col-lg-2" ng-controller="ProductCategoriesController as pcc">
+            <h3>Jewellary</h3>
+            <div ng-repeat="category in pcc.productCategory.Categories">
+                <span><input type="checkbox" id="category.ID">{{category.Name}}</span>
+            </div>
+        </div>
+        <div class="col-lg-10" ng-controller="ProductsController as pc">
+            <div class="row">
+                <div class="col-sm-6 col-lg-4" ng-repeat="product in  pc.products">
+                    <div class="single-product md-card">
+                        <div class="item-top">
+                            <a href="#"><img src="../../../assets/img/bangle.png"></a>
+                            <div class="button-container">
+                                <ul>
+                                    <li>
+                                        <li><a href="cart.html" ng-click="hc.addToCart(product)"><i class="pe-7s-cart"></i></a></li>
+                                        <li><a href="cart.html"><i class="pe-7s-cart"></i></a></li>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="item-bottom">
+                            <h5><a class="product-name" href="#">{{product.Name}}</a></h5>
+                            <div class="price-rating-container">
+                                <div class="price-box">
+                                    <span><strong>{{product.currency}} {{product.price}} </strong></span>
+                                    <span class="old-price" ng-if="product.oldPrice">{{product.currency}} {{product.oldPrice}}</span>
+                                    <span class="comment" ng-if="product.comment">{{product.comment}}</span>
+                                </div>
+                                <div class="rating-right">
+                                    <div class="star-content">
+                                        <div class="star" ng-repeat="rating in hc.getArray(product.rating) track by $index"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
 
 </div>
