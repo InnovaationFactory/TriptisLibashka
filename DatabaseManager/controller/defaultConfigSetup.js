@@ -1,7 +1,8 @@
 (function (defaultSetup) {
     var data = require('../data'),
         config = require('../config'),
-        tableName = 'productCategory';
+        tableName = 'productCategory',
+        tableNameProduct = 'product';
 
     var getCategoryRequestObj = function (name, category, parentCategory) {
         return request = {
@@ -15,16 +16,37 @@
         };
     }
 
-    var createCategory = function (category) {
+    var createCategory = function (category, iterator) {
         var categoryName = Object.keys(category)[0];
         var request = getCategoryRequestObj(categoryName, categoryName, null)
+
         data.create(request, function (err, response) {
             console.log(err || response);
             if (!err) {
                 createSubCategory(category[categoryName], response);
+                if (iterator == 0) {
+                    createProducts(response);
+                }
             }
         });
     }
+
+    var createProducts = function (categoryId) {
+        var newProducts = config.NewProducts;
+        newProducts.forEach(function (product) {
+            product.Category = categoryId;
+            var request = {
+                table: tableNameProduct,
+                model: product
+            };
+            data.create(request, function (err, response) {
+                console.log(err || response);
+                if (!err) {
+                    console.log(response);
+                }
+            });
+        });
+    };
 
     var createSubCategory = function (subCategory, ParentId) {
         if (typeof subCategory == "object") {
@@ -46,8 +68,9 @@
         data.read(request, function (err, response) {
             if (!err && response.length <= 0) {
                 var categories = config.Categories;
+                var iterator = 0;
                 categories.forEach(function (category) {
-                    createCategory(category);
+                    createCategory(category, iterator++);
                 });
             } else {
                 console.log(err || "Product Categories table already created!");

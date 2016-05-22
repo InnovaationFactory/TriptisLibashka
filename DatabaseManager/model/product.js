@@ -1,10 +1,6 @@
  var mongoose = require('mongoose'),
      schema = mongoose.Schema,
      productSchema = new schema({
-         _id: {
-             type: Number,
-             default: 1000
-         },
          Name: {
              type: String,
              required: true
@@ -17,6 +13,30 @@
          ImageUrl: {
              type: String,
              required: true
+         },
+         DisplayAsNew: {
+             type: Boolean,
+             required: true,
+             default: true
+         },
+         currency: {
+             type: String,
+             required: true
+         },
+         price: {
+             type: Number,
+             required: true
+         },
+         oldPrice: {
+             type: Number
+         },
+         comment: {
+             type: String
+         },
+         rating: {
+             type: Number,
+             required: true,
+             default: 5
          },
          IsActive: {
              type: Boolean,
