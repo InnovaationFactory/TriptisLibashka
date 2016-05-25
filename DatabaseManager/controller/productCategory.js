@@ -1,6 +1,7 @@
 (function (productCategory) {
     var data = require('../data'),
         responseSender = require('../helpers/responseSender'),
+        config = require('../config'),
         tableName = 'productCategory';
 
     var updateTable = function (request, res) {
@@ -66,6 +67,10 @@
             }
         };
         updateTable(request, res);
+    }
+
+    productCategory.getProductCategoryFromConfig = function (req, res) {
+        responseSender.send(null, config.Categories, res);
     }
 
 })(module.exports);

@@ -17,8 +17,9 @@
 
         app.get('/api/productsByCategory/:categoryID', product.getProductsByCategory);
 
-        app.get('/api/productCategories/:productCategoryId?', productCategory.getProductCategoryDetails);
+        app.get('/api/productCategories/:productCategoryId', productCategory.getProductCategoryDetails);
         app.post('/api/productCategories', productCategory.addProductCategory);
+        app.get('/api/productCategories', productCategory.getProductCategoryFromConfig);
         app.delete('/api/productCategories/:productCategoryId', productCategory.deleteProductCategory);
         app.put('/api/productCategories/:productCategoryId', productCategory.updateProductCategory);
 
