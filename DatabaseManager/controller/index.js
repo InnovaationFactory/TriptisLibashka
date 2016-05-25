@@ -15,7 +15,6 @@
         app.delete('/api/products/:productId', product.deleteProducts);
         app.put('/api/products/:productId', product.updateProducts);
 
-        debugger;
         app.get('/api/productsByCategory/:categoryID', product.getProductsByCategory);
 
         app.get('/api/productCategories/:productCategoryId?', productCategory.getProductCategoryDetails);

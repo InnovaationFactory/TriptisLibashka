@@ -16,66 +16,58 @@ module.exports = {
             currency: "£",
             price: "61.19",
             oldPrice: "120.20",
-            comment: "Flat 50% Discount"
+            comment: "Flat 50% Discount",
+            Category: "Women Jewllery Bangels"
                     }, {
             ImageUrl: "assets/img/Trending.jpg",
             Name: "Trending Now",
             currency: "£",
-            price: "861.19"
+            price: "861.19",
+            Category: "Women Jewllery Bangels"
                     }, {
             ImageUrl: "assets/img/rings.jpg",
             Name: "Royal Rings",
             currency: "£",
-            price: "99"
+            price: "99",
+            Category: "Women Jewllery Earings"
                     }, {
             ImageUrl: "assets/img/Latest.jpg",
             Name: "Cant Miss this",
             currency: "£",
-            price: "299"
+            price: "299",
+            Category: "Women Jewllery Bangels"
                     }, {
             ImageUrl: "assets/img/bangle.png",
             Name: "Trendy Bangles",
             currency: "£",
             price: "61.19",
             oldPrice: "120.20",
-            comment: "Flat 50% Discount"
+            comment: "Flat 50% Discount",
+            Category: "Women Jewllery Bangels"
                     }, {
             ImageUrl: "assets/img/necklace.png",
             Name: "Latest Necklaces",
             currency: "£",
-            price: "21.09"
+            price: "21.09",
+            Category: "Women Jewllery Necklace"
                     }, {
             ImageUrl: "assets/img/earring.png",
             Name: "Exclusive Earings",
             currency: "£",
-            price: "100.47"
+            price: "100.47",
+            Category: "Women Jewllery Earings"
                     }],
         Categories: [{
-            Men: {
-                Clothes: {
-                    Ethenic: "",
-                    "Indo-Western": "",
-                    "Unstiched Suits": "",
-                    Kaftans: ""
+                Men: {
+                    Clothes: ["Ethenic", "Indo-Western", "Unstiched-Suits", "Kaftans"]
                 }
-            }
-            }, {
-            Women: {
-                Clothes: {
-                    Ethenic: "",
-                    "Indo-Western": "",
-                    Tops: "",
-                    Kaftans: ""
-                },
-                Jewllery: {
-                    Bangels: "",
-                    Earings: "",
-                    Necklace: "",
-                    Pendents: "",
-                    Bracelets: ""
+        },
+            {
+                Women: {
+                    Clothes: ["Ethenic", "Indo-Western", "Tops", "Kaftans"],
+                    Jewllery: ["Bangels", "Earings", "Necklace", "Pendents", "Bracelets"]
                 }
-            }
-                     }],
+        }],
         'dataLimit': 100
     }
     //mongod --dbpath D:\mongo\ data

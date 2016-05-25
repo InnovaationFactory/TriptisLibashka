@@ -6,9 +6,7 @@
              required: true
          },
          Category: {
-             type: schema.Types.ObjectId,
-             ref: 'ProductCategoryModel',
-             required: true
+             type: String
          },
          ImageUrl: {
              type: String,

@@ -25,16 +25,15 @@
             if (!err) {
                 createSubCategory(category[categoryName], response);
                 if (iterator == 0) {
-                    createProducts(response);
+                    createProducts();
                 }
             }
         });
     }
 
-    var createProducts = function (categoryId) {
+    var createProducts = function () {
         var newProducts = config.NewProducts;
         newProducts.forEach(function (product) {
-            product.Category = categoryId;
             var request = {
                 table: tableNameProduct,
                 model: product
@@ -50,15 +49,24 @@
 
     var createSubCategory = function (subCategory, ParentId) {
         if (typeof subCategory == "object") {
-            Object.keys(subCategory).forEach(function (key) {
-                var request = getCategoryRequestObj(key, key, ParentId)
-                data.create(request, function (err, response) {
-                    console.log(err || response);
-                    if (!err) {
-                        createSubCategory(subCategory[key], response);
-                    }
+            if (subCategory.length > 0) {
+                subCategory.forEach(function (cat) {
+                    var request = getCategoryRequestObj(cat, cat, ParentId)
+                    data.create(request, function (err, response) {
+                        console.log(err || response);
+                    });
                 });
-            });
+            } else {
+                Object.keys(subCategory).forEach(function (key) {
+                    var request = getCategoryRequestObj(key, key, ParentId)
+                    data.create(request, function (err, response) {
+                        console.log(err || response);
+                        if (!err) {
+                            createSubCategory(subCategory[key], response);
+                        }
+                    });
+                });
+            }
         }
     }
 
