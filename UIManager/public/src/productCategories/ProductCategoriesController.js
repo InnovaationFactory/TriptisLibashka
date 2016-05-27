@@ -19,5 +19,14 @@
                 self.productCategories = data;
             });
         }
+
+        self.options = {
+            from: 100,
+            to: 5000,
+            step: 100,
+            value: ""
+        };
+
+        self.value = "100;5000";
     }
 })();
