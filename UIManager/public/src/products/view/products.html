@@ -1,39 +1,25 @@
 <div>
-    <!--    <div>Product List</div>-->
-    <!--
-    <div>
-        <div ng-repeat="productCategory in pc.productCategories">
-            <div>{{productCategory.Name}}</div>
-        </div>
-    </div>
--->
-    <!--
-    <div>
-        <div ng-repeat="product in pc.products">
-            <div>{{product.Name}}</div>
-        </div>
-    </div>
--->
-
     <div class="row">
-        <div class="col-lg-2" ng-controller="ProductCategoriesController as pcc">
+        <div class="col-lg-2">
 
             <div ng-controller="ProductCategoriesController as pcc">
                 <div>
-                    <h3>Select Category</h3>
-                    <div ng-repeat="category in pcc.productCategory.Categories">
-                        <span><input type="checkbox" id="categoryID"><span>&nbsp;{{category.Name}}</span></span>
+                    <h4>Select Category</h4>
+                    <br/>
+                    <div ng-repeat="category in pcc.productCategories">
+                        <span><input type="checkbox" id="category.Key"><span>&nbsp;{{category.Key}}</span></span>
                     </div>
                 </div>
-
+                <hr/>
                 <div>
-                    <h3>Select Price Range</h3>
+                    <h4>Select Price (in £) </h4>
+                    <br/>
                     <div>
-                        <input ng-model="pcc.value" type="text" id="mySlider1" slider options="pcc.options" /> {{pcc.value}}
+
+                        <input ng-model="pcc.value" type="text" id="mySlider1" slider options="pcc.options" />
                     </div>
                 </div>
             </div>
-
         </div>
 
         <div class="col-lg-10" ng-controller="ProductsController as pc">

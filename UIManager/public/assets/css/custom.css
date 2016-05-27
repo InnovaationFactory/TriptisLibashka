@@ -202,7 +202,7 @@ body {
 /*----------------------------------------*/
 
 .mainmenu {
-    padding: 27px 0 0;
+    /*    padding: 27px 0 0;*/
 }
 
 .mainmenu ul#nav li {
@@ -215,7 +215,7 @@ body {
     display: block;
     font-size: 14px;
     font-weight: 500;
-    line-height: 96px;
+    /*    line-height: 96px;*/
     margin: 0;
     padding: 0 20px;
     position: relative;
@@ -246,7 +246,7 @@ body {
     text-align: left;
     top: 86px;
     visibility: hidden;
-    width: 215px;
+    /*    width: 215px;*/
     z-index: -9;
     transform: scaleY(0);
     transform-origin: 0 0 0;
@@ -277,7 +277,8 @@ body {
 .mainmenu ul#nav li:hover .megamenu {
     margin-top: 0;
     opacity: 1;
-    top: 98px;
+    /*    top: 98px;*/
+    top: 30px;
     transform: scaleY(1);
     visibility: visible;
     z-index: 999;
@@ -300,14 +301,15 @@ body {
 
 .mainmenu ul#nav li .megamenu {
     background: #ffffff none repeat scroll 0 0;
-    left: -255px;
+    /*    left: -255px;*/
     opacity: 0;
     padding: 15px;
     position: absolute;
     visibility: hidden;
     z-index: -99;
     top: 86px;
-    width: 923px;
+    /*    width: 923px;*/
+    width: 430px;
     transform: scaleY(0);
     transform-origin: 0 0 0;
     transition: all 0.5s ease 0s;
@@ -459,7 +461,7 @@ body {
 
 .header-right-menu {
     float: right;
-    padding: 27px 0 0;
+    /*    padding: 27px 0 0;*/
 }
 
 .header-right-menu i {
@@ -472,7 +474,7 @@ body {
 }
 
 .header-right-menu > ul > li {
-    line-height: 96px;
+    /*    line-height: 96px;*/
     padding: 0 15px;
     position: relative;
 }
@@ -610,7 +612,7 @@ body {
 ul.header-settings li:hover .settings-menu {
     margin-top: 0;
     opacity: 1;
-    top: 97px;
+    top: 10px;
     transform: scaleY(1);
     visibility: visible;
     z-index: 999;
@@ -662,7 +664,8 @@ ul.header-r-cart .mini-cart-content {
 ul.header-r-cart li:hover .mini-cart-content {
     margin-top: 0;
     opacity: 1;
-    top: 97px;
+    /*    top: 97px;*/
+    top: 30px;
     transform: scaleY(1);
     visibility: visible;
     z-index: 999;

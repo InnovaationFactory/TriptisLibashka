@@ -17,25 +17,25 @@ module.exports = {
             price: "61.19",
             oldPrice: "120.20",
             comment: "Flat 50% Discount",
-            Category: "Women Jewllery Bangels"
+            Category: "Women Jewellery Bangels"
                     }, {
             ImageUrl: "assets/img/Trending.jpg",
             Name: "Trending Now",
             currency: "£",
             price: "861.19",
-            Category: "Women Jewllery Bangels"
+            Category: "Women Jewellery Bangels"
                     }, {
             ImageUrl: "assets/img/rings.jpg",
             Name: "Royal Rings",
             currency: "£",
             price: "99",
-            Category: "Women Jewllery Earings"
+            Category: "Women Jewellery Earings"
                     }, {
             ImageUrl: "assets/img/Latest.jpg",
             Name: "Cant Miss this",
             currency: "£",
             price: "299",
-            Category: "Women Jewllery Bangels"
+            Category: "Women Jewellery Bangels"
                     }, {
             ImageUrl: "assets/img/bangle.png",
             Name: "Trendy Bangles",
@@ -43,19 +43,19 @@ module.exports = {
             price: "61.19",
             oldPrice: "120.20",
             comment: "Flat 50% Discount",
-            Category: "Women Jewllery Bangels"
+            Category: "Women Jewellery Bangels"
                     }, {
             ImageUrl: "assets/img/necklace.png",
             Name: "Latest Necklaces",
             currency: "£",
             price: "21.09",
-            Category: "Women Jewllery Necklace"
+            Category: "Women Jewellery Necklace"
                     }, {
             ImageUrl: "assets/img/earring.png",
             Name: "Exclusive Earings",
             currency: "£",
             price: "100.47",
-            Category: "Women Jewllery Earings"
+            Category: "Women Jewellery Earings"
                     }, {
             ImageUrl: "assets/img/western.jpg",
             Name: "Natural beige colour tunic,with beautiful hand embroidery on neck & sleeve cuts ,perfect for a cocktail or dinner night.",
@@ -64,15 +64,46 @@ module.exports = {
             Category: "Women Clothes Indo-Western"
                     }],
         Categories: [{
-                Men: {
-                    Clothes: ["Ethenic", "Indo-Western", "Unstiched-Suits", "Kaftans"]
-                }
-        },
-            {
-                Women: {
-                    Clothes: ["Ethenic", "Indo-Western", "Tops", "Kaftans"],
-                    Jewllery: ["Bangels", "Earings", "Necklace", "Pendents", "Bracelets"]
-                }
+            "Key": "Men",
+            "Categories": [{
+                "Key": "Clothes",
+                "Categories": [{
+                    "Key": "Ethenic"
+                }, {
+                    "Key": "Indo-Western"
+                }, {
+                    "Key": "Unstiched-Suits"
+                }, {
+                    "Key": "Kaftans"
+                }]
+            }]
+        }, {
+            "Key": "Women",
+            "Categories": [{
+                "Key": "Clothes",
+                "Categories": [{
+                    "Key": "Ethenic"
+                }, {
+                    "Key": "Indo-Western"
+                }, {
+                    "Key": "Unstiched-Suits"
+                }, {
+                    "Key": "Kaftans"
+                }]
+            }, {
+                "Key": "Jewellery",
+                "Categories": [{
+                    "Key": "Bangels"
+                }, {
+                    "Key": "Earings"
+                }, {
+                    "Key": "Necklace"
+                }, {
+                    "Key": "Pendents"
+                }, {
+                    "Key": "Bracelets"
+                }]
+            }]
         }],
         'dataLimit': 100
     }

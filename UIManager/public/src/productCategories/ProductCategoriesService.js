@@ -15,7 +15,7 @@
                 });
 
                 request.success(function (response) {
-                    deferred.resolve(response.data);
+                    deferred.resolve(response);
                 });
 
                 return deferred;
@@ -25,19 +25,13 @@
 
                 var deferred = $q.defer();
 
-                deferred.resolve({
-                    ID: 100001,
-                    Name: 'Jewellary',
-                    Categories: [
-                        {
-                            ID: 100100,
-                            Name: 'Bnagles'
-                        },
-                        {
-                            ID: 100101,
-                            Name: 'Earings'
-                        }
-                    ]
+                var request = $http({
+                    method: "get",
+                    url: GLOBALCONFIG.ServiceManager.getUrls('getProductCategories')
+                });
+
+                request.success(function (response) {
+                    deferred.resolve(response);
                 });
 
                 return deferred;

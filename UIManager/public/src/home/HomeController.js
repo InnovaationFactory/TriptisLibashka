@@ -35,7 +35,7 @@
 
         slides.push({
             image: "banner2",
-            text: "Exquisite Jwellery",
+            text: "Exquisite Jewellery",
             id: 1
         });
 
@@ -47,7 +47,7 @@
 
         slides.push({
             image: 'banner4',
-            text: "Bridal Jwellery",
+            text: "Bridal Jewellery",
             id: 3
         });
 

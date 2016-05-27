@@ -360,6 +360,15 @@ footer:hover {
 }
 */
 
+header {
+    /*    background-image: url(../img/header-bg.png);*/
+    /*    background-color: #354238;*/
+}
+
+.header-title {
+    color: goldenrod;
+}
+
 .footer {
     background-color: #f8f8f8;
     border-color: #e7e7e7;
@@ -457,4 +466,8 @@ body {
 
 .md-card:hover {
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.jslider div.jslider-bg i.range {
+    background-position: 0 -10px !important;
 }
