@@ -366,11 +366,12 @@ header {
 }
 
 .header-title {
-    color: goldenrod;
+    color: #701e6c;
+    font-weight: bold;
 }
 
 .footer {
-    background-color: #f8f8f8;
+    background-color: #1B2755;
     border-color: #e7e7e7;
 }
 
