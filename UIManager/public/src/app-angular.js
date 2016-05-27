@@ -28,6 +28,10 @@
             templateUrl: "src/productCategories/view/productCategories.html"
         }).when("/categories/:categoryID/products", {
             templateUrl: "src/products/view/products.html"
+        }).when("/profile", {
+            templateUrl: "src/profile/view/profile.html"
+        }).otherwise({
+            redirectTo: '/'
         });
     });
 })();

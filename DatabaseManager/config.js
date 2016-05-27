@@ -56,6 +56,12 @@ module.exports = {
             currency: "£",
             price: "100.47",
             Category: "Women Jewllery Earings"
+                    }, {
+            ImageUrl: "assets/img/western.jpg",
+            Name: "Natural beige colour tunic,with beautiful hand embroidery on neck & sleeve cuts ,perfect for a cocktail or dinner night.",
+            currency: "£",
+            price: "100.47",
+            Category: "Women Clothes Indo-Western"
                     }],
         Categories: [{
                 Men: {

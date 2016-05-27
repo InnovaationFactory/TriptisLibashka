@@ -419,9 +419,27 @@ body {
 }
 
 .pe-7s-cart {
-    width: 33px;
-    height: 37px;
-    content: url('../img/cart.png');
+    content: '';
+}
+
+.pe-7s-cart:before {
+    font-family: FontAwesome;
+    content: "\f217";
+    display: inline-block;
+    padding: 0px 10px 2px 0px;
+    vertical-align: middle;
+    color: grey;
+    font-size: xx-large;
+}
+
+.fa-share:before {
+    font-family: FontAwesome;
+    content: "\f1e0";
+    display: inline-block;
+    padding: 0px 10px 2px 0px;
+    vertical-align: middle;
+    color: grey;
+    font-size: xx-large;
 }
 
 
@@ -430,7 +448,7 @@ body {
 .md-card {
     background: #fff;
     border-radius: 2px;
-/*    display: inline-block;*/
+    /*    display: inline-block;*/
     margin: 1rem;
     position: relative;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
