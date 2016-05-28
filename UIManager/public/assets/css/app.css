@@ -442,16 +442,6 @@ body {
     font-size: xx-large;
 }
 
-.fa-share:before {
-    font-family: FontAwesome;
-    content: "\f1e0";
-    display: inline-block;
-    padding: 0px 10px 2px 0px;
-    vertical-align: middle;
-    color: grey;
-    font-size: xx-large;
-}
-
 
 /*md-card css*/
 
@@ -471,4 +461,14 @@ body {
 
 .jslider div.jslider-bg i.range {
     background-position: 0 -10px !important;
+}
+
+.product-action-icons {
+    font-size: 25px;
+    color: ivory;
+}
+
+.single-product .button-container ul li a:hover .product-action-icons,
+.product-action-icons:hover {
+    color: black;
 }
