@@ -1,12 +1,13 @@
 (function () {
     'use strict'
-    angular.module('productcategories').controller('ProductCategoriesController', ['productcategoriesService', '$routeParams', '$mdSidenav', '$mdBottomSheet', '$log', '$q', ProductCategoriesController]);
+    angular.module('products').controller('ProductsFilterController', ['productcategoriesService', 'productsService', '$routeParams', '$mdSidenav', '$mdBottomSheet', '$log', '$q', ProductsFilterController]);
 
 
-    function ProductCategoriesController(productcategoriesService, $routeParams, $mdSidenav, $mdBottomSheet, $log, $q) {
+    function ProductsFilterController(productcategoriesService, productsService, $routeParams, $mdSidenav, $mdBottomSheet, $log, $q) {
         var self = this;
 
         self.productCategories = null;
+        // self.productCategory = $routeParams.categoryID;
 
         if ($routeParams.categoryID) {
             productcategoriesService.getProductCategoryByID($routeParams.categoryID).promise.then(function (data) {
@@ -32,5 +33,16 @@
                 self.productCategories = data;
             });
         }
+
+        self.priceRange = {
+            options: {
+                from: productsService.minPrice,
+                to: productsService.maxPrice,
+                step: 10
+            },
+            value: ("" + productsService.minPrice + ";" + productsService.maxPrice + "")
+        };
+
+
     }
 })();

@@ -6,6 +6,8 @@
 
     function ProductsService($q, $http, APIService, $timeout) {
         return {
+            maxPrice: null,
+            minPrice: null,
             getAllProducts: function (productCategory) {
                 var deferred = $q.defer();
 
