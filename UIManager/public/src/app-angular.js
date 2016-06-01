@@ -1,7 +1,7 @@
 (function () {
 
     angular
-        .module('TL', ['ngMaterial', 'ngRoute', 'ui.bootstrap', 'ngSlider', 'productcategories', 'products', 'home'])
+        .module('TL', ['ngMaterial', 'ngRoute', 'ui.bootstrap', 'ngSlider', 'productcategories', 'products', 'home', 'cart'])
         .config(function ($mdThemingProvider, $mdIconProvider) {
 
             $mdIconProvider

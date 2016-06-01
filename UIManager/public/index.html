@@ -108,27 +108,32 @@
                 </div>
                 <div class="col-lg-2 col-md-2 col-sm-3  hidden-xs hidden-sm">
                     <div class="header-right-menu">
-                        <ul class="header-r-cart">
-                            <li><a class="cart" href="cart.html"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true" style="padding-right:5px"></i><span>1</span></a>
+                        <ul class="header-r-cart" ng-controller="cartController as cc">
+                            <li><a class="cart" href="cart.html"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true" style="padding-right:5px"></i><span ng-bind="cc.getCartItemCount()"></span></a>
                                 <div class="mini-cart-content">
-                                    <div class="cart-products">
+                                    <div class="cart-products" ng-repeat="cartItem in cc.cartItems" ng-if="$index<2">
                                         <div class="cart-image">
-                                            <a href="#"><img src="assets/img/clothing.png" alt=""></a>
+                                            <a href="#"><img class="cartImage" src="{{cartItem.img}}" alt=""></a>
                                         </div>
                                         <div class="cart-product-info">
-                                            <span class="quantity">2 <span class="times">X</span></span>
-                                            <a href="#">Hand Bag</a>
-                                            <!--                                            <a href="#" class="brand-name">Tripti's</a>-->
-                                            <p class="p-price">£ 80.20</p>
-                                            <a class="remove-product"><i class="fa fa-times-circle"></i></a>
+                                            <span class="quantity" ng-bind="cartItem.quantity"><span class="times">X</span></span>
+                                            <a href="#">{{ cartItem.name }}</a>
+                                            <p class="p-price">{{cartItem.currency}} {{cartItem.price || "0"}}</p>
+                                            <a ng-click="cc.removeItem($index)" class="remove-product"><i class="fa fa-times-circle"></i></a>
                                         </div>
+                                    </div>
+                                    <div class="text-center" ng-hide="cc.cartItems.length">
+                                        <h4 class="cart-text">No items in cart</h4>
+                                    </div>
+                                    <div class="text-center" ng-show="cc.cartItems.length>2">
+                                        <a class="cart-text" ng-bind="cc.getCartItemCount()-2 + ' more items, click here to view all.'"></a>
                                     </div>
                                     <div class="cart-price">
                                         <span>Total</span>
-                                        <span class="total-price">£ 160.40</span>
+                                        <span class="total-price" ng-bind="cc.getCost()"></span>
                                     </div>
                                     <p class="cart-buttons">
-                                        <a href="checkout.html"><span>Checkout<i class="fa fa-chevron-right"></i></span></a>
+                                        <a href="checkout.html" ng-show="cc.cartItems.length"><span>Checkout<i class="fa fa-chevron-right"></i></span></a>
                                     </p>
                                 </div>
                             </li>
@@ -343,6 +348,7 @@
 
     <script src="configuration.js"></script>
     <script src="./src/util/APIService.js"></script>
+    <script src="./src/util/cartController.js"></script>
     <script src="./src/home/Home.js"></script>
     <script src="./src/home/HomeController.js"></script>
 
