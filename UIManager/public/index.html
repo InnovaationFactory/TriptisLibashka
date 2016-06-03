@@ -109,15 +109,15 @@
                 <div class="col-lg-2 col-md-2 col-sm-3  hidden-xs hidden-sm">
                     <div class="header-right-menu">
                         <ul class="header-r-cart" ng-controller="cartController as cc">
-                            <li><a class="cart" href="cart.html"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true" style="padding-right:5px"></i><span ng-bind="cc.getCartItemCount()"></span></a>
+                            <li><a class="cart"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true" style="padding-right:5px"></i><span ng-bind="cc.getCartItemCount()"></span></a>
                                 <div class="mini-cart-content">
                                     <div class="cart-products" ng-repeat="cartItem in cc.cartItems" ng-if="$index<2">
                                         <div class="cart-image">
-                                            <a href="#"><img class="cartImage" src="{{cartItem.img}}" alt=""></a>
+                                            <a href="#"><img class="cartImage" src="{{cartItem.ImageUrl}}" alt=""></a>
                                         </div>
                                         <div class="cart-product-info">
-                                            <span class="quantity" ng-bind="cartItem.quantity"><span class="times">X</span></span>
-                                            <a href="#">{{ cartItem.name }}</a>
+                                            <span class="quantity"><span ng-bind="cartItem.quantity"></span> <span class="times">X</span></span>
+                                            <a href="#">{{ cartItem.Name }}</a>
                                             <p class="p-price">{{cartItem.currency}} {{cartItem.price || "0"}}</p>
                                             <a ng-click="cc.removeItem($index)" class="remove-product"><i class="fa fa-times-circle"></i></a>
                                         </div>

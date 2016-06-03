@@ -4,36 +4,12 @@
 
     angular
         .module('cart')
-        .controller('cartController', ['$routeParams', '$mdSidenav', '$mdBottomSheet', '$log', '$q', cartController]);
+        .controller('cartController', ['$rootScope', '$routeParams', '$mdSidenav', '$mdBottomSheet', '$log', '$q', '$scope', cartController]);
 
-    function cartController($routeParams, $mdSidenav, $mdBottomSheet, $log, $q, $scope) {
+    function cartController($rootScope, $routeParams, $mdSidenav, $mdBottomSheet, $log, $q, $scope) {
         var self = this;
 
-        self.cartItems = [{
-            img: 'assets/img/clothing.png',
-            name: "Hand bag",
-            quantity: '20',
-            price: '52.6',
-            currency: '£'
-        }, {
-            img: 'assets/img/clothing.png',
-            name: "Hand bag1",
-            quantity: '20',
-            price: '52.6',
-            currency: '£'
-        }, {
-            img: 'assets/img/clothing.png',
-            name: "Hand bag2",
-            quantity: '20',
-            price: '52.6',
-            currency: '£'
-        }, {
-            img: 'assets/img/clothing.png',
-            name: "Hand bag3",
-            quantity: '20',
-            price: '52.6',
-            currency: '£'
-        }];
+        self.cartItems = [];
 
         self.getCartItemCount = function () {
             return self.cartItems.length;
@@ -53,8 +29,35 @@
             self.cartItems.splice(index, 1);
         }
 
-//        $scope.on('itemAddedToCart', function (item) {
-            //            self.cartItems.push(item);
-            //        });
+        $rootScope.$on('itemAddedToCart', function (event, item) {
+            debugger;
+            self.cartItems.push(item);
+        });
     }
 })();
+
+//{
+//            ImageUrl: 'assets/img/clothing.png',
+//            Name: "Hand bag",
+//            quantity: '2',
+//            price: '52.6',
+//            currency: '£'
+//        }, {
+//            ImageUrl: 'assets/img/clothing.png',
+//            Name: "Hand bag1",
+//            quantity: '5',
+//            price: '52.6',
+//            currency: '£'
+//        }, {
+//            ImageUrl: 'assets/img/clothing.png',
+//            Name: "Hand bag2",
+//            quantity: '1',
+//            price: '52.6',
+//            currency: '£'
+//        }, {
+//            ImageUrl: 'assets/img/clothing.png',
+//            Name: "Hand bag3",
+//            quantity: '3',
+//            price: '52.6',
+//            currency: '£'
+//        }

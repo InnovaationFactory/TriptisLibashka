@@ -459,6 +459,10 @@ body {
 /*  2.3 Search Box, Cart button
 /*--------------------------------------------*/
 
+.cart {
+    cursor: pointer;
+}
+
 .header-right-menu {
     float: right;
     /*    padding: 27px 0 0;*/
@@ -694,14 +698,14 @@ ul.header-r-cart li:hover .mini-cart-content {
     display: inline-block;
     margin-top: 5px;
     padding-bottom: 0;
-    width: 59%;
+    width: 70%;
     position: relative
 }
 
 .mini-cart-content .cart-image {
     float: left;
     margin-right: 5%;
-    width: 36%;
+    width: 25%;
 }
 
 .cart-product-info {

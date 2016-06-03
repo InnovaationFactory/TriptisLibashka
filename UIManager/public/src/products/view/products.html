@@ -31,9 +31,11 @@
                             <div class="button-container">
                                 <ul>
                                     <li>
-                                        <li><a href="cart.html" ng-click="hc.addToCart(product)"><i class="pe-7s-cart"></i></a></li>
-                                        <li><a href="cart.html"><i class="pe-7s-cart"></i></a></li>
+                                        <a ng-click="pc.addProductToCart(product)">
+                                            <i class="fa fa-shopping-cart fa-2x product-action-icons" aria-hidden="true" title="Add to cart"></i>
+                                        </a>
                                     </li>
+                                    <li><a href="cart.html"><i title="Share" class="fa fa-share fa-2x product-action-icons"></i></a></li>
                                 </ul>
                             </div>
                         </div>

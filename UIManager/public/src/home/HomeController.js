@@ -2,9 +2,9 @@
 
     angular
         .module('home')
-        .controller('HomeController', ['productsService', HomeController]);
+        .controller('HomeController', ['productsService', '$rootScope', HomeController]);
 
-    function HomeController(productsService) {
+    function HomeController(productsService, $rootScope) {
         var self = this;
         self.myInterval = 5000;
         self.noWrapSlides = false;
@@ -12,14 +12,6 @@
         var slides = self.slides = [];
         var currIndex = 0;
 
-        //        self.addSlide = function () {
-        //            var newWidth = 600 + slides.length + 1;
-        //            slides.push({
-        //                image: 'assets/img/banner.jpg',
-        //                text: ['Nice image', 'Awesome photograph', 'That is so cool', 'I love that'][slides.length % 4],
-        //                id: currIndex++
-        //            });
-        //        };
 
         self.randomize = function () {
             var indexes = generateIndexesArray();
@@ -50,13 +42,6 @@
             text: "Bridal Jewellery",
             id: 3
         });
-
-
-        //        for (var i = 0; i < 4; i++) {
-        //            self.addSlide();
-        //        }
-
-        // Randomize logic below
 
         var newProducts = productsService.getAllNewProducts();
         newProducts.promise.then(function (data) {
@@ -94,6 +79,11 @@
             }
 
             return array;
+        }
+
+        self.addProductToCart = function (product) {
+            product.quantity = 1;
+            $rootScope.$emit('itemAddedToCart', product);
         }
     };
 })();
