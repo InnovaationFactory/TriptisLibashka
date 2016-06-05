@@ -1,9 +1,9 @@
 (function () {
     'use strict'
-    angular.module('products').controller('ProductsFilterController', ['productcategoriesService', 'productsService', '$routeParams', '$mdSidenav', '$mdBottomSheet', '$log', '$q', ProductsFilterController]);
+    angular.module('products').controller('ProductsFilterController', ['productcategoriesService', 'productsService', '$routeParams', '$mdSidenav', '$mdBottomSheet', '$log', '$q', '$scope', '$rootScope', ProductsFilterController]);
 
 
-    function ProductsFilterController(productcategoriesService, productsService, $routeParams, $mdSidenav, $mdBottomSheet, $log, $q) {
+    function ProductsFilterController(productcategoriesService, productsService, $routeParams, $mdSidenav, $mdBottomSheet, $log, $q, $scope, $rootScope) {
         var self = this;
 
         self.productCategories = null;
@@ -36,13 +36,26 @@
 
         self.priceRange = {
             options: {
-                from: productsService.minPrice,
-                to: productsService.maxPrice,
+                from: null,
+                to: null,
                 step: 10
             },
-            value: ("" + productsService.minPrice + ";" + productsService.maxPrice + "")
+            value: "null;null"
         };
 
+        $rootScope.$on('productListLoaded', function (event, products) {
 
+            var pricearray = products.map(function (o) {
+                return o.price;
+            })
+
+            var max = Math.ceil(Math.max.apply(Math, pricearray));
+            var min = Math.floor(Math.min.apply(Math, pricearray));
+
+            self.priceRange.options.from = min;
+            self.priceRange.options.to = max;
+            self.priceRange.value = ("" + min + ";" + max + "");
+        });
     }
+
 })();

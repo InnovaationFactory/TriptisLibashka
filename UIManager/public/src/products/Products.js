@@ -2,6 +2,6 @@
     'use strict';
 
     // Prepare the 'users' module for subsequent registration of controllers and delegates
-    angular.module('products', ['ngRoute', 'ngMaterial', 'util']);
+    angular.module('products', ['ngRoute', 'ngMaterial']);
 
 })();

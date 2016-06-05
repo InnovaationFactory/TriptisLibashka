@@ -2,12 +2,10 @@
     'use strict'
 
     angular.module('products')
-        .service('productsService', ['$q', '$http', 'APIService', '$timeout', ProductsService]);
+        .service('productsService', ['$q', '$http', '$timeout', ProductsService]);
 
-    function ProductsService($q, $http, APIService, $timeout) {
+    function ProductsService($q, $http, $timeout) {
         return {
-            maxPrice: null,
-            minPrice: null,
             getAllProducts: function (productCategory) {
                 var deferred = $q.defer();
 

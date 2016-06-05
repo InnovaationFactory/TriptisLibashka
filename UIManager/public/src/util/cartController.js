@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-    angular.module('cart', ['ngRoute', 'ngMaterial', 'util']);
+    angular.module('cart', ['ngRoute', 'ngMaterial']);
 
     angular
         .module('cart')
