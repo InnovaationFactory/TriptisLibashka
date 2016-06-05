@@ -23,11 +23,13 @@
 				categories.forEach(function (item, index, arr) {
 					if (item.Key === categoryFilter.toString()) {
 						self.productCategories = item.Categories;
+						addSelectedPropertyToCategories();
 					} else {
 						if (item.Categories) {
 							item.Categories.forEach(function (item1, index1, arr1) {
 								if (item1.Key === categoryFilter.toString()) {
 									self.productCategories = item1.Categories;
+									addSelectedPropertyToCategories();
 								}
 							});
 						}
@@ -38,6 +40,7 @@
 		} else {
 			productcategoriesService.getAllProductCategories().promise.then(function (data) {
 				self.productCategories = data;
+				addSelectedPropertyToCategories();
 			});
 		}
 
@@ -49,6 +52,23 @@
 			},
 			value: "null;null"
 		};
+
+
+		self.applyCategoryFilter = function () {
+			var selectedCategories = self.productCategories.filter(function (o) {
+				if (o.isSelected) {
+					return o;
+				}
+			});
+
+
+			var onlyKeys = selectedCategories.map(function (o) {
+				return o.Key;
+			})
+
+			$rootScope.$emit('productListFiltered', onlyKeys);
+		}
+
 
 		$rootScope.$on('productListLoaded', function (event, products) {
 
@@ -65,6 +85,12 @@
 				self.priceRange.value = ("" + min + ";" + max + "");
 			}
 		});
+
+		function addSelectedPropertyToCategories() {
+			self.productCategories.forEach(function (item, index, arr) {
+				item.isSelected = true;
+			})
+		}
 	}
 
 })();

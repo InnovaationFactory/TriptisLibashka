@@ -3,7 +3,7 @@
 		<h4>Select Category</h4>
 		<br/>
 		<div ng-repeat="category in pfc.productCategories">
-			<span><input type="checkbox" id="category.Key"><span>&nbsp;{{category.Key}}</span></span>
+			<span><input type="checkbox" id="category.Key" ng-change="pfc.applyCategoryFilter()" ng-model="category.isSelected"><span>&nbsp;{{category.Key}}</span></span>
 		</div>
 	</div>
 	<hr/>
