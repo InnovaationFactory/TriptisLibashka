@@ -48,11 +48,19 @@
 			options: {
 				from: 0,
 				to: null,
-				step: 10
+				step: 10,
+				callback: applyRangeFilter
 			},
 			value: "null;null"
+
 		};
 
+		function applyRangeFilter(sliderValue, released) {
+			$rootScope.$emit('productListFiltered', {
+				"type": "pricerange",
+				"value": sliderValue
+			});
+		}
 
 		self.applyCategoryFilter = function () {
 			var selectedCategories = self.productCategories.filter(function (o) {
@@ -66,7 +74,10 @@
 				return o.Key;
 			})
 
-			$rootScope.$emit('productListFiltered', onlyKeys);
+			$rootScope.$emit('productListFiltered', {
+				"type": "category",
+				"value": onlyKeys
+			});
 		}
 
 

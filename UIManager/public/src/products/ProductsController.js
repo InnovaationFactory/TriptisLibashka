@@ -74,13 +74,24 @@
 		}
 
 
-		$rootScope.$on('productListFiltered', function (event, categories) {
+		$rootScope.$on('productListFiltered', function (event, filter) {
+			if (filter.type === "category") {
+				self.productsInDisplay = self.products.filter(function (o) {
+					if (checkValueForFiltersExclusive(o.Category, filter.value.join("_"))) {
+						return o;
+					}
+				});
+			} else if (filter.type === "pricerange") {
 
-			self.productsInDisplay = self.products.filter(function (o) {
-				if (checkValueForFiltersExclusive(o.Category, categories.join("_"))) {
-					return o;
-				}
-			});
+				var priceArray = filter.value.split(";");
+
+				self.productsInDisplay = self.products.filter(function (o) {
+					if (o.price >= priceArray[0] && o.price <= priceArray[1]) {
+						return o;
+					}
+				});
+			}
 		});
+
 	}
 })();
