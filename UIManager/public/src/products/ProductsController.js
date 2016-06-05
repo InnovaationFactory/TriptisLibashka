@@ -30,7 +30,7 @@
 				});
 
 
-				if (self.products.length > 0) {
+				if (self.productsInDisplay.length > 0) {
 					self.productNotAvailable = false;
 				}
 
