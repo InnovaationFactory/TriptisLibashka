@@ -4,13 +4,13 @@
 
     angular
         .module('cart')
-        .controller('cartController', ['$rootScope', '$routeParams', '$mdSidenav', '$mdBottomSheet', '$log', '$q', '$scope', cartController]);
+        .controller('cartController', ['$rootScope', '$routeParams', '$mdSidenav', '$mdBottomSheet', '$log', '$q', '$scope', 'localStorage', cartController]);
 
-    function cartController($rootScope, $routeParams, $mdSidenav, $mdBottomSheet, $log, $q, $scope) {
+    function cartController($rootScope, $routeParams, $mdSidenav, $mdBottomSheet, $log, $q, $scope, localStorage) {
         var self = this;
-
-        self.cartItems = [];
-
+        var cartKey = 'cartItems';
+        self.cartItems = localStorage.getData(cartKey) || [];
+        debugger;
         self.getCartItemCount = function () {
             return self.cartItems.length;
         }
@@ -27,37 +27,12 @@
 
         self.removeItem = function (index) {
             self.cartItems.splice(index, 1);
+            localStorage.setData(cartKey, self.cartItems);
         }
 
         $rootScope.$on('itemAddedToCart', function (event, item) {
-            debugger;
             self.cartItems.push(item);
+            localStorage.setData(cartKey, self.cartItems);
         });
     }
 })();
-
-//{
-//            ImageUrl: 'assets/img/clothing.png',
-//            Name: "Hand bag",
-//            quantity: '2',
-//            price: '52.6',
-//            currency: '£'
-//        }, {
-//            ImageUrl: 'assets/img/clothing.png',
-//            Name: "Hand bag1",
-//            quantity: '5',
-//            price: '52.6',
-//            currency: '£'
-//        }, {
-//            ImageUrl: 'assets/img/clothing.png',
-//            Name: "Hand bag2",
-//            quantity: '1',
-//            price: '52.6',
-//            currency: '£'
-//        }, {
-//            ImageUrl: 'assets/img/clothing.png',
-//            Name: "Hand bag3",
-//            quantity: '3',
-//            price: '52.6',
-//            currency: '£'
-//        }
