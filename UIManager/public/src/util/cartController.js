@@ -10,7 +10,6 @@
         var self = this;
         var cartKey = 'cartItems';
         self.cartItems = localStorage.getData(cartKey) || [];
-        debugger;
         self.getCartItemCount = function () {
             return self.cartItems.length;
         }

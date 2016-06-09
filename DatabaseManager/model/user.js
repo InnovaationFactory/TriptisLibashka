@@ -21,15 +21,24 @@
              type: String,
              required: true
          },
-         Organization: {
+         Gender: {
+             type: String,
+             required: true
+         },
+         Contact: {
+             type: String,
+             required: true
+         },
+         AlternateContact: {
+             type: String
+         },
+         Email: {
              type: String,
              required: true
          },
          Roles: [{
-             type: Number,
-             required: true,
-             ref: 'RoleModel'
-        }],
+             type: Number
+         }],
          IsActive: {
              type: Boolean,
              required: true,
@@ -41,7 +50,7 @@
          },
          CreatedBy: {
              type: String,
-             default: 'Admin'
+             default: 'Tripti'
          },
          ModifiedDate: {
              type: Date,
@@ -49,7 +58,7 @@
          },
          ModifiedBy: {
              type: String,
-             default: 'Admin'
+             default: 'Tripti'
          }
      });
  module.exports = mongoose.model('UserModel', userSchema, 'TblUserAccount');
