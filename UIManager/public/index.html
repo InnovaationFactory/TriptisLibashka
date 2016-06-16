@@ -38,9 +38,7 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <center>
-
-                        <h1 class="header-title">Tripti's LIBASHKA</h1></center>
-
+                        <h1 class="header-title">Tripti's LIBASHKA</h1>
                     </center>
                 </div>
             </div>
@@ -166,10 +164,16 @@
                         <h4>My Account</h4>
                         <div class="footer-info">
                             <ul class="list">
-                                <li><a href="#">My Orders</a></li>
-                                <li><a href="#">My Credits</a></li>
-                                <li><a href="#">My Addresses</a></li>
-                                <li><a href="#">My Personal Info</a></li>
+                                <li>
+                                    <a href="#" id="status">Welcome, <span ng-bind="gc.user.Name"></span></a>
+                                </li>
+                                <li ng-hide="gc.user.isAuthenticated">
+                                    <fb:login-button scope="public_profile,email" onlogin="loginSuccessful();">
+                                    </fb:login-button>
+                                </li>
+                                <li><a ng-show="gc.user.isAuthenticated" href="#">My Credits</a></li>
+                                <li><a ng-show="gc.user.isAuthenticated" href="#">My Orders</a></li>
+                                <li><a ng-show="gc.user.isAuthenticated" href="#">My Addresses</a></li>
                             </ul>
                         </div>
                     </div>
@@ -312,6 +316,14 @@
 
     <script type="text/javascript" src="./src/app-angular.js"></script>
     <script type="text/javascript">
+        // Try to find alternate code
+        var loginSuccessful = function () {
+            var $body = angular.element(document.body);
+            var $rootScope = $body.scope().$root;
+            $rootScope.$apply(function () {
+                $rootScope.$emit('FBUserLoggedIn');
+            });
+        }
     </script>
 </body>
 
