@@ -1,24 +1,27 @@
 (function (user) {
     var data = require('../data');
 
-    user.getUserDetails = function (req, res) {
+    user.getUserDetails = function (userName, callback) {
         var request = {};
         request.table = 'user';
         request.query = {
             IsActive: true
         };
-        var username = req.params.username;
-        if (username) {
+        if (userName) {
             request.query = {
                 $and: [{
-                    UserName: username
+                    UserName: userName
                     }, {
                     IsActive: true
                     }]
 
             };
         }
-        data.read(request, function (err, response) {
+        data.read(request, callback);
+    };
+
+    user.getUserDetailsApi = function (req, res) {
+        user.getUserDetails(req.params.userName, function (err, response) {
             var result = {
                 isError: false,
                 error: null,
@@ -33,24 +36,37 @@
             }
         });
     };
+
     user.addUser = function (req, res) {
         var request = {
             table: 'user',
             model: req.body
         };
-
-        data.create(request, function (err, response) {
-            var result = {
-                isError: false,
-                error: null,
-                data: response
-            };
-            if (err) {
+        var result = {
+            isError: false,
+            error: null,
+            data: {}
+        };
+        user.getUserDetails(req.body.UserName, function (err, response) {
+            if (err || !response) {
                 result.isError = true;
                 result.error = err;
                 result.data = null;
+                return res.json(result);
             }
-            res.json(result);
+            if (response.length > 0) {
+                result.data = response._Id;
+                return res.json(result);
+            }
+            data.create(request, function (err, response) {
+                result.data = response;
+                if (err) {
+                    result.isError = true;
+                    result.error = err;
+                    result.data = null;
+                }
+                res.json(result);
+            });
         });
     };
 

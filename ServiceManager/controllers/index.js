@@ -4,6 +4,7 @@
         var config = app.get('config'),
             router = app.get(config.routes.route.name),
             product = require('./product'),
+            user = require('./user'),
             productCategory = require('./productCategory');
 
 
@@ -26,5 +27,8 @@
             .get(productCategory.getProductCategoryDetails)
             .delete(productCategory.deleteProductCategory)
             .put(productCategory.updateProductCategory);
+
+        router.route('/users')
+            .post(user.addUser);
     };
 })(module.exports);

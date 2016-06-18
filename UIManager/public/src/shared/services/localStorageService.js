@@ -1,4 +1,4 @@
-angular.module('shared.services').factory("localStorage", function ($window, $rootScope) {
+angular.module('shared.services').factory("localStorage", ['$window', '$rootScope', function ($window, $rootScope) {
     return {
         setData: function (key, val, isString) {
             val = isString ? val : JSON.stringify(val);
@@ -10,4 +10,4 @@ angular.module('shared.services').factory("localStorage", function ($window, $ro
             return isString ? val : JSON.parse(val);
         }
     };
-});
+}]);

@@ -7,27 +7,35 @@
          },
          FirstName: {
              type: String,
-             required: true
+             required: false
          },
          LastName: {
              type: String,
-             required: true
+             required: false
          },
          UserName: {
              type: String,
              required: true
          },
-         Password: {
+         FullName: {
              type: String,
              required: true
+         },
+         ExternalId: {
+             type: String,
+             required: true
+         },
+         Password: {
+             type: String,
+             required: false
          },
          Gender: {
              type: String,
-             required: true
+             required: false
          },
          Contact: {
              type: String,
-             required: true
+             required: false
          },
          AlternateContact: {
              type: String

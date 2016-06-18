@@ -168,7 +168,7 @@
                                     <a href="#" id="status">Welcome, <span ng-bind="gc.user.Name"></span></a>
                                 </li>
                                 <li ng-hide="gc.user.isAuthenticated">
-                                    <fb:login-button scope="public_profile,email" onlogin="loginSuccessful();">
+                                    <fb:login-button scope="public_profile,email" onlogin="checkIfLoginSuccessful();">
                                     </fb:login-button>
                                 </li>
                                 <li><a ng-show="gc.user.isAuthenticated" href="#">My Credits</a></li>
@@ -290,6 +290,7 @@
 
     <script type="text/javascript" src="src/shared/services/index.js"></script>
     <script type="text/javascript" src="src/shared/services/localStorageService.js"></script>
+    <script type="text/javascript" src="src/shared/services/httpService.js"></script>
     <script type="text/javascript" src="src/shared/index.js"></script>
     <!--
     <script src="./src/users/Users.js"></script>
@@ -317,13 +318,17 @@
     <script type="text/javascript" src="./src/app-angular.js"></script>
     <script type="text/javascript">
         // Try to find alternate code
-        var loginSuccessful = function () {
+        var checkIfLoginSuccessful = function () {
             var $body = angular.element(document.body);
             var $rootScope = $body.scope().$root;
             $rootScope.$apply(function () {
                 $rootScope.$emit('FBUserLoggedIn');
             });
         }
+
+        setTimeout(function () {
+            checkIfLoginSuccessful();
+        }, 1000);
     </script>
 </body>
 

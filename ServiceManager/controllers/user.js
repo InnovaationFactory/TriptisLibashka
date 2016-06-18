@@ -1,4 +1,4 @@
-(function (product) {
+(function (user) {
     var requestifier = require('../helpers/requestifier'),
         cipher = require('../helpers/cipher'),
         responseSender = require('../helpers/responseSender'),
@@ -7,9 +7,9 @@
 
     var updateTable = function (request, res) {}
 
-    product.getProductDetails = function (req, res) {
+    user.getUsers = function (req, res) {
         var requestifyObj = {
-            'url': config.DBManager.getUrls('productDetails', req.params.productId),
+            'url': config.DBManager.getUrls('users', req.params.userId),
         };
         requestifier.get(requestifyObj, function (productResponse) {
             responseSender.send(null, productResponse, res);
@@ -18,22 +18,17 @@
         });
     };
 
-    product.getProductsByCategory = (function (req, res) {
-        //pass category id here
+    user.addUser = function (req, res) {
+        debugger;
+        var user = {
+            ExternalId: req.body.id,
+            UserName: req.body.email,
+            FullName: req.body.name,
+            Email: req.body.email
+        }
         var requestifyObj = {
-            'url': config.DBManager.getUrls('productsByCategory', req.params.categoryID)
-        };
-        requestifier.get(requestifyObj, function (productResponse) {
-            responseSender.send(null, productResponse, res);
-        }, function (err) {
-            responseSender.send(err, null, res);
-        });
-    });
-
-    product.addProducts = function (req, res) {
-        var requestifyObj = {
-            url: config.DBManager.getUrls('productDetails'),
-            data: req.body,
+            url: config.DBManager.getUrls('users'),
+            data: user,
             options: {
                 headers: {
                     contentType: 'application/json'
@@ -46,9 +41,10 @@
             responseSender.send(err, null, res);
         });
     };
-    product.deleteProducts = function (req, res) {
+
+    user.deleteUser = function (req, res) {
         var requestifyObj = {
-            'url': config.DBManager.getUrls('productDetails', req.params.productId)
+            'url': config.DBManager.getUrls('users', req.params.userId)
         };
         requestifier.delete(requestifyObj, function (productResponse) {
             responseSender.send(null, productResponse, res);
@@ -56,9 +52,10 @@
             responseSender.send(err, null, res);
         });
     };
-    product.updateProducts = function (req, res) {
+
+    user.updateUser = function (req, res) {
         var requestifyObj = {
-            'url': config.DBManager.getUrls('productDetails', req.params.productId),
+            'url': config.DBManager.getUrls('users', req.params.userId),
             data: req.body,
             options: {
                 headers: {

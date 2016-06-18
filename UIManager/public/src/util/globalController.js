@@ -4,21 +4,33 @@
 
     angular
         .module('util')
-        .controller('globalController', ['$rootScope', '$routeParams', '$mdSidenav', '$mdBottomSheet', '$log', '$q', '$scope', '$window', 'facebookService', globalController])
+        .controller('globalController', ['$rootScope', '$routeParams', '$mdSidenav', '$mdBottomSheet', '$log', '$q', '$scope', '$window', 'localStorage', 'facebookService', 'httpService', globalController])
         .factory('facebookService', ['$q', facebookLoginService]);
 
-    function globalController($rootScope, $routeParams, $mdSidenav, $mdBottomSheet, $log, $q, $scope, $window, facebookService) {
+    function globalController($rootScope, $routeParams, $mdSidenav, $mdBottomSheet, $log, $q, $scope, $window, localStorage, facebookService, httpService) {
         var self = this;
         self.user = {
             Name: "Guest"
         };
 
         var setUser = function (userDetail) {
-            debugger;
             self.user = {
                 Name: userDetail.name,
                 isAuthenticated: true
             };
+
+            var reqObj = {
+                method: "post",
+                data: userDetail,
+                url: GLOBALCONFIG.ServiceManager.getUrls('registerUser')
+            };
+
+            httpService.makeRequest(reqObj, function (res) {
+                console.log("User Registered!");
+
+            }, function (err) {
+                debugger;
+            });
         };
 
         $window.fbAsyncInit = function () {
@@ -41,21 +53,22 @@
                         return alert("Unable to login to facebook, Please try again later");
                     }
                     setUser(user);
+                    saveToken(response);
                 });
             });
         }
 
-        //facebookService.getMyDetails(function (err, user) {
-        //    if (!err) {
-        //        setUser(user);
-        //    }
-        //});
+        var saveToken = function (token) {
+            var accessToken = {
+                tokenValidator: 'facebook',
+                token: token.authResponse
+            }
+            localStorage.setData('accesstoken', accessToken);
+        };
 
         $rootScope.$on('FBUserLoggedIn', function () {
             checkLoginStatus();
         });
-
-        checkLoginStatus();
     }
 
     function facebookLoginService($q) {
