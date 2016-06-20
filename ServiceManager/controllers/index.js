@@ -5,6 +5,7 @@
             router = app.get(config.routes.route.name),
             product = require('./product'),
             user = require('./user'),
+            cart = require('./cart'),
             productCategory = require('./productCategory');
 
 
@@ -27,6 +28,13 @@
             .get(productCategory.getProductCategoryDetails)
             .delete(productCategory.deleteProductCategory)
             .put(productCategory.updateProductCategory);
+
+        router.route('/carts/:userName?')
+            .post(cart.addCart)
+            .get(cart.getCartDetails);
+        router.route('/carts/:cartId')
+            .delete(cart.deleteCart)
+            .put(cart.updateCart);
 
         router.route('/users')
             .post(user.addUser);

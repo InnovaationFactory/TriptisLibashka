@@ -22,7 +22,8 @@ var model = {
     collection: {
         user: require('./user'),
         product: require('./product'),
-        productCategory: require('./productCategory')
+        productCategory: require('./productCategory'),
+        cart: require('./cart')
     }
 };
 exports.schemas = model;
