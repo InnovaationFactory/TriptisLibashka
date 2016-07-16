@@ -9,7 +9,6 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
     <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'>
 
-
     <link rel='stylesheet' href="bootstrap/dist/css/bootstrap.min.css" />
     <link rel='stylesheet' href="angular-ui-bootstrap/dist/ui-bootstrap-csp.css" />
     <!--    <link rel="stylesheet" href="angular-material/angular-material.css" />-->
@@ -73,7 +72,7 @@
                                         <span class="total-price" ng-bind="cc.getCost()"></span>
                                     </div>
                                     <p class="cart-buttons">
-                                        <a href="checkout.html" ng-show="cc.cartItems.length"><span>Checkout<i class="fa fa-chevron-right"></i></span></a>
+                                        <a style="cursor: pointer" onclick="login()" ng-show="cc.cartItems.length"><span>Checkout<i class="fa fa-chevron-right"></i></span></a>
                                     </p>
                                 </div>
                             </li>
@@ -315,6 +314,7 @@
     <script src="./src/products/ProductsFilterController.js"></script>
 
 
+
     <script type="text/javascript" src="./src/app-angular.js"></script>
     <script type="text/javascript">
         // Try to find alternate code
@@ -326,10 +326,14 @@
             });
         }
 
-        //Check if user is already logged into FB
-        setTimeout(function () {
-            checkIfLoginSuccessful();
-        }, 1000);
+        var login = function () {
+                alert('Please login before chckout!');
+                $('html,body').animate({
+                    scrollTop: $('#footer').offset().top
+                }, 1000);
+            }
+            //Check if user is already logged into FB
+            //        setTimeout(function () { // checkIfLoginSuccessful(); // }, 1000);
     </script>
 </body>
 

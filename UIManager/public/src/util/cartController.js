@@ -21,7 +21,7 @@
                 cost += item.price * item.quantity;
                 currency = item.currency;
             });
-            return currency + " " + cost;
+            return currency + " " + Math.round(cost * 100) / 100;
         }
 
         self.removeItem = function (index) {

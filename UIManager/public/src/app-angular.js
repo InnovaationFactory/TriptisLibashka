@@ -32,6 +32,8 @@
             templateUrl: "src/products/view/products.html"
         }).when("/profile", {
             templateUrl: "src/profile/view/profile.html"
+        }).when("/contact", {
+            templateUrl: "src/contactus/contactus.html"
         }).otherwise({
             redirectTo: '/'
         });
