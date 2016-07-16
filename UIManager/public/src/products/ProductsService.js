@@ -22,7 +22,15 @@
 
             },
             getProductsById(productId) {
-
+                var deferred = $q.defer();
+                var request = $http({
+                    method: "get",
+                    url: GLOBALCONFIG.ServiceManager.getUrls('getProductDetails') + '/' + productId
+                });
+                request.success(function (data) {
+                    deferred.resolve(data);
+                });
+                return deferred;
             },
             searchProducts: function (searchKey) {
 

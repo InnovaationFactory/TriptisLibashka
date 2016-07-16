@@ -12,6 +12,9 @@
              type: String,
              required: true
          },
+         AlternateProducts: {
+             type: Array
+         },
          DisplayAsNew: {
              type: Boolean,
              required: true,
@@ -26,6 +29,9 @@
              required: true
          },
          oldPrice: {
+             type: Number
+         },
+         timeToMake: {
              type: Number
          },
          comment: {

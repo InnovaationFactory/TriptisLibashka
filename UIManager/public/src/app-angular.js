@@ -1,7 +1,7 @@
 (function () {
 
     angular
-        .module('TL', ['ngMaterial', 'ngRoute', 'ui.bootstrap', 'ngSlider', 'util', 'productcategories', 'products', 'home', 'cart','shared'])
+        .module('TL', ['ngMaterial', 'ngRoute', 'ui.bootstrap', 'ngSlider', 'util', 'productcategories', 'products', 'home', 'cart', 'shared'])
         .config(function ($mdThemingProvider, $mdIconProvider) {
 
             $mdIconProvider
@@ -22,8 +22,10 @@
     angular.module('TL').config(function ($routeProvider) {
         $routeProvider.when("/", {
             templateUrl: "src/home/view/home.html"
-        }).when("/products:", {
+        }).when("/products", {
             templateUrl: "src/products/view/products.html"
+        }).when("/products/:productId", {
+            templateUrl: "src/products/view/productDetails.html"
         }).when("/categories/:categorytype", {
             templateUrl: "src/productCategories/view/productCategories.html"
         }).when("/categories/:categoryID/products", {

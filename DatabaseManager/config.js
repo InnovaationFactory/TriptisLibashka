@@ -16,6 +16,7 @@ module.exports = {
             currency: "£",
             price: "61.19",
             oldPrice: "120.20",
+            timeToMake: 5,
             comment: "Flat 50% Discount",
             Category: "Women Jewellery Bangels"
                     }, {
@@ -23,24 +24,28 @@ module.exports = {
             Name: "Trending Now",
             currency: "£",
             price: "861.19",
+            timeToMake: 2,
             Category: "Women Jewellery Bangels"
                     }, {
             ImageUrl: "assets/img/rings.jpg",
             Name: "Royal Rings",
             currency: "£",
             price: "99",
+            timeToMake: 45,
             Category: "Women Jewellery Earings"
                     }, {
             ImageUrl: "assets/img/Latest.jpg",
             Name: "Cant Miss this",
             currency: "£",
             price: "299",
+            timeToMake: 10,
             Category: "Women Jewellery Bangels"
                     }, {
             ImageUrl: "assets/img/bangle.png",
             Name: "Trendy Bangles",
             currency: "£",
             price: "61.19",
+            timeToMake: 1,
             oldPrice: "120.20",
             comment: "Flat 50% Discount",
             Category: "Women Jewellery Bangels"
@@ -49,18 +54,21 @@ module.exports = {
             Name: "Latest Necklaces",
             currency: "£",
             price: "21.09",
+            timeToMake: 5,
             Category: "Women Jewellery Necklace"
                     }, {
             ImageUrl: "assets/img/earring.png",
             Name: "Exclusive Earings",
             currency: "£",
             price: "100.47",
+            timeToMake: 5,
             Category: "Women Jewellery Earings"
                     }, {
             ImageUrl: "assets/img/western.jpg",
             Name: "Natural beige colour tunic,perfect for a cocktail or dinner night.",
             currency: "£",
             price: "100.47",
+            timeToMake: 5,
             Category: "Women Clothes Indo-Western"
                     }],
         Categories: [{
