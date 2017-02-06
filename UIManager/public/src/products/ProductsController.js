@@ -2,10 +2,10 @@
 
     angular
         .module('products')
-        .controller('ProductsController', ['productsService', '$rootScope', '$window', 'productcategoriesService', '$routeParams', '$mdSidenav', '$mdBottomSheet', '$log', '$q', ProductsController]);
+        .controller('ProductsController', ['productsService', '$rootScope', '$window', 'productcategoriesService', '$routeParams', '$mdSidenav', '$mdBottomSheet', '$log', '$q', '$location', ProductsController]);
 
 
-    function ProductsController(productsService, $rootScope, $window, productcategoriesService, $routeParams, $mdSidenav, $mdBottomSheet, $log, $q) {
+    function ProductsController(productsService, $rootScope, $window, productcategoriesService, $routeParams, $mdSidenav, $mdBottomSheet, $log, $q, $location) {
         var self = this;
 
         self.currentProduct = '';
@@ -13,8 +13,12 @@
         self.productNotAvailable = true;
         self.productsInDisplay = null;
 
+        self.buyNow = function (product) {
+            self.addProductToCart(product);
+            $location.path('/checkout');
+        }
+
         self.addProductToCart = function (product) {
-            product.quantity = 1;
             $rootScope.$emit('itemAddedToCart', product);
         }
 

@@ -35,9 +35,12 @@
     <header>
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="col-lg-4 col-md-4 col-xs-6">
+                    <img class="tl_logo" src="assets/img/logo.jpg" alt="Tipti's Logo" />
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-6">
                     <center>
-                        <h1 class="header-title">Tripti's LIBASHKA</h1>
+                        <h1 class="header-title">Tripti's Libashka</h1>
                     </center>
                 </div>
             </div>
@@ -51,8 +54,8 @@
                             <li><a class="cart"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true" style="padding-right:5px"></i><span ng-bind="cc.getCartItemCount()"></span></a>
                                 <div class="mini-cart-content">
                                     <div class="cart-products" ng-repeat="cartItem in cc.cartItems" ng-if="$index<2">
-                                        <div class="cart-image">
-                                            <a href="#"><img class="cartImage" src="{{cartItem.ImageUrl}}" alt=""></a>
+                                        <div class="cart-image" ng-click="cc.showDetails(cartItem)">
+                                            <a><img class="cartImage" src="{{cartItem.ImageUrl}}" alt=""></a>
                                         </div>
                                         <div class="cart-product-info">
                                             <span class="quantity"><span ng-bind="cartItem.quantity"></span> <span class="times">X</span></span>
@@ -72,7 +75,7 @@
                                         <span class="total-price" ng-bind="cc.getCost()"></span>
                                     </div>
                                     <p class="cart-buttons">
-                                        <a style="cursor: pointer" onclick="login()" ng-show="cc.cartItems.length"><span>Checkout<i class="fa fa-chevron-right"></i></span></a>
+                                        <a style="cursor: pointer" ng-show="cc.cartItems.length"><span ng-click="cc.buyNow()">Checkout<i class="fa fa-chevron-right"></i></span></a>
                                     </p>
                                 </div>
                             </li>
@@ -297,9 +300,12 @@
 <script src="./src/users/UserService.js"></script>
 -->
 
-    <script src="configuration.js"></script>
-    <script src="./src/util/globalController.js"></script>
-    <script src="./src/util/cartController.js"></script>
+    <script type="application/javascript" src="configuration.js"></script>
+    <script type="application/javascript" src="./src/util/index.js"></script>
+    <script type="application/javascript" src="./src/util/globalController.js"></script>
+    <script type="application/javascript" src="./src/util/cartController.js"></script>
+    <script type="application/javascript" src="./src/util/checkoutController.js"></script>
+
     <script src="./src/home/Home.js"></script>
     <script src="./src/home/HomeController.js"></script>
 
@@ -334,6 +340,20 @@
             }
             //Check if user is already logged into FB
             //        setTimeout(function () { // checkIfLoginSuccessful(); // }, 1000);
+
+
+        function init() {
+            window.addEventListener('scroll', function (e) {
+                var distanceY = window.pageYOffset || document.documentElement.scrollTop,
+                    shrinkOn = 1;
+                if (distanceY > shrinkOn) {
+                    $('header').addClass("smaller");
+                } else {
+                    $('header').removeClass("smaller");
+                }
+            });
+        }
+        window.onload = init();
     </script>
 </body>
 

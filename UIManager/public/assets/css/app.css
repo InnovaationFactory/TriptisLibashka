@@ -344,7 +344,8 @@ md-toolbar:not(.md-menu-toolbar) {
 }
 
 .main-body {
-    min-height: CALC(100% - 30px)
+    min-height: CALC(100% - 30px);
+    padding-top: 170px;
 }
 
 
@@ -361,13 +362,44 @@ footer:hover {
 */
 
 header {
-    /*    background-image: url(../img/header-bg.png);*/
-    /*    background-color: #354238;*/
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    background: white;
+}
+
+header.smaller .header-title {
+    font-size: 30px;
+    margin-top: 10px;
+}
+
+header.smaller .tl_logo {
+    width: 50px;
+    padding: 5px 0px;
+}
+
+.tl_logo {
+    width: 135px;
+    padding: 10px 0px;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
 }
 
 .header-title {
+    margin-top: 30px;
+    font-size: 50px;
     color: #701e6c;
     font-weight: bold;
+    font-variant: small-caps;
+    text-shadow: #abbaab 3px 3px 5px;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
 }
 
 .footer {

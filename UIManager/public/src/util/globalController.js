@@ -1,7 +1,4 @@
 (function () {
-    'use strict';
-    angular.module('util', ['ngRoute', 'ngMaterial']);
-
     angular
         .module('util')
         .controller('globalController', ['$rootScope', '$routeParams', '$mdSidenav', '$mdBottomSheet', '$log', '$q', '$scope', '$window', 'localStorage', 'facebookService', 'httpService', globalController])

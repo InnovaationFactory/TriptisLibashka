@@ -19,16 +19,9 @@
     };
 
     user.addUser = function (req, res) {
-        debugger;
-        var user = {
-            ExternalId: req.body.id,
-            UserName: req.body.email,
-            FullName: req.body.name,
-            Email: req.body.email
-        }
         var requestifyObj = {
             url: config.DBManager.getUrls('users'),
-            data: user,
+            data: req.body,
             options: {
                 headers: {
                     contentType: 'application/json'

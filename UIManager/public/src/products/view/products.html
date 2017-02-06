@@ -9,7 +9,7 @@
                 <div class="col-sm-6 col-lg-4" ng-repeat="product in  pc.productsInDisplay">
                     <div class="single-product md-card">
                         <div class="item-top">
-                            <a href="#products/{{product._id}}"><img src="{{product.ImageUrl}}"></a>
+                            <a href="#products/{{product._id}}"><img ng-class="'img_'+ product._id" src="{{product.ImageUrl}}"></a>
                             <div class="button-container">
                                 <ul>
                                     <li>
@@ -17,7 +17,7 @@
                                             <i class="fa fa-shopping-cart fa-2x product-action-icons" aria-hidden="true" title="Add to cart"></i>
                                         </a>
                                     </li>
-                                    <li><a href="cart.html"><i title="Share" class="fa fa-share fa-2x product-action-icons"></i></a></li>
+                                    <li><a ng-click="pc.buyNow(product)"><i title="Share" class="fa fa-share fa-2x product-action-icons"></i></a></li>
                                 </ul>
                             </div>
                         </div>

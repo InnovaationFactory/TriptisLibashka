@@ -5,19 +5,11 @@
              type: Number,
              default: 1000
          },
-         FirstName: {
-             type: String,
-             required: false
-         },
-         LastName: {
+         Name: {
              type: String,
              required: false
          },
          UserName: {
-             type: String,
-             required: true
-         },
-         FullName: {
              type: String,
              required: true
          },

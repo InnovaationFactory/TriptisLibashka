@@ -2,9 +2,9 @@
 
     angular
         .module('home')
-        .controller('HomeController', ['productsService', '$rootScope', HomeController]);
+        .controller('HomeController', ['productsService', '$rootScope', '$location', HomeController]);
 
-    function HomeController(productsService, $rootScope) {
+    function HomeController(productsService, $rootScope, $location) {
         var self = this;
         self.myInterval = 5000;
         self.noWrapSlides = false;
@@ -82,8 +82,12 @@
         }
 
         self.addProductToCart = function (product) {
-            product.quantity = 1;
             $rootScope.$emit('itemAddedToCart', product);
+        }
+
+        self.buyNow = function (product) {
+            $rootScope.$emit('itemAddedToCart', product);
+            $location.path('/checkout');
         }
     };
 })();

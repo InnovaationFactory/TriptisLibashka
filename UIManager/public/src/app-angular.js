@@ -1,7 +1,7 @@
 (function () {
 
     angular
-        .module('TL', ['ngMaterial', 'ngRoute', 'ui.bootstrap', 'ngSlider', 'util', 'productcategories', 'products', 'home', 'cart', 'shared'])
+        .module('TL', ['ngMaterial', 'ngRoute', 'ui.bootstrap', 'ngSlider', 'util', 'productcategories', 'products', 'home', 'shared'])
         .config(function ($mdThemingProvider, $mdIconProvider) {
 
             $mdIconProvider
@@ -34,6 +34,8 @@
             templateUrl: "src/profile/view/profile.html"
         }).when("/contact", {
             templateUrl: "src/contactus/contactus.html"
+        }).when("/checkout", {
+            templateUrl: "src/util/view/checkout.html"
         }).otherwise({
             redirectTo: '/'
         });
